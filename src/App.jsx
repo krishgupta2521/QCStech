@@ -7,7 +7,6 @@ import {
   Check,
   CheckCircle2,
   Clock,
-  Cpu,
   GraduationCap,
   Globe,
   Handshake,
@@ -132,6 +131,22 @@ const Counter = ({ target, duration = 2000, suffix = "" }) => {
   );
 };
 
+// Pre-computed particle data — stable across re-renders
+const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
+  width: `${Math.random() * 4 + 2}px`,
+  height: `${Math.random() * 4 + 2}px`,
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  background:
+    i % 3 === 0
+      ? "rgba(99,102,241,0.5)"
+      : i % 3 === 1
+        ? "rgba(168,85,247,0.4)"
+        : "rgba(100,116,139,0.3)",
+  animationDuration: `${Math.random() * 10 + 8}s`,
+  animationDelay: `${Math.random() * 8}s`,
+}));
+
 // --- Main App Component ---
 
 export default function App() {
@@ -189,7 +204,7 @@ export default function App() {
   const sendViaOutlook = () => {
     const { subject, body } = buildEmailParts();
     const mailto = `mailto:ashish@qcstech.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    window.open(mailto, "_self");
     finishSend();
   };
 
@@ -535,9 +550,6 @@ export default function App() {
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <a href="#" className="flex items-center gap-2 group">
-                <div className="w-8 h-8 rounded bg-gradient-to-br from-indigo-500 to-fuchsia-500 flex items-center justify-center text-white shadow-lg shadow-violet-500/30 group-hover:shadow-violet-500/50 transition-all duration-300">
-                  <Cpu size={20} strokeWidth={2.5} />
-                </div>
                 <span className="font-bold text-xl tracking-tight text-white">
                   QCS Tech
                 </span>
@@ -697,7 +709,7 @@ export default function App() {
               <Reveal delay={400} from="left">
                 <div className="relative z-10 mt-12 pt-6 border-t border-purple-950/40 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
                  <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#a855f7]" /> ISO Certified
+  <CheckCircle2 size={18} className="text-[#a855f7]" /> Best In the Industry
 </div>
 <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
   <CheckCircle2 size={18} className="text-[#a855f7]" /> 24/7 Support
@@ -804,7 +816,7 @@ export default function App() {
             <div className="dark-card rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div className="p-4">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
-                  <Counter target={15} />
+                  <Counter target={9} />
                 </div>
                 <div className="text-xs font-semibold text-violet-400/60 uppercase tracking-widest">
                   Years Experience
@@ -1100,25 +1112,8 @@ export default function App() {
 
       {/* Floating Particles Layer */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {[...Array(18)].map((_, i) => (
-          <div
-            key={i}
-            className="particle"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              background:
-                i % 3 === 0
-                  ? "rgba(99,102,241,0.5)"
-                  : i % 3 === 1
-                    ? "rgba(168,85,247,0.4)"
-                    : "rgba(100,116,139,0.3)",
-              animationDuration: `${Math.random() * 10 + 8}s`,
-              animationDelay: `${Math.random() * 8}s`,
-            }}
-          />
+        {PARTICLES.map((p, i) => (
+          <div key={i} className="particle" style={p} />
         ))}
       </div>
 
@@ -1610,7 +1605,7 @@ export default function App() {
                   </div>
                   <div className="ml-5">
                     <h4 className="text-lg font-bold text-white">
-                      Head Office
+                      Office
                     </h4>
                     <p className="text-gray-400 mt-1 leading-relaxed">
                       C-148, New Moti Nagar,
@@ -1801,9 +1796,6 @@ export default function App() {
             {/* Brand */}
             <div>
               <a href="#" className="flex items-center gap-2 mb-6 group">
-                <div className="w-10 h-10 rounded bg-gradient-to-br from-indigo-500 to-fuchsia-500 flex items-center justify-center text-white font-bold shadow-lg shadow-violet-500/30">
-                  <Cpu size={24} strokeWidth={2.5} />
-                </div>
                 <span className="font-extrabold text-2xl tracking-tight text-white">
                   QCS Tech
                 </span>
@@ -2083,6 +2075,35 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* WhatsApp FAB */}
+      <a
+        href="https://wa.me/919899536532"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Chat on WhatsApp"
+        className="fixed bottom-6 right-6 z-[150] flex items-center justify-center w-[56px] h-[56px] rounded-full transition-transform duration-200 hover:scale-110 active:scale-95"
+        style={{ background: "#25D366", boxShadow: "0 6px 28px rgba(37,211,102,0.5), 0 2px 8px rgba(0,0,0,0.25)" }}
+      >
+        {/* Red notification dot */}
+        <span
+          className="absolute top-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-white"
+          style={{ background: "#ef4444" }}
+        />
+        {/* Official WhatsApp icon mark */}
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M24 4C13 4 4 13 4 24c0 3.6.97 7 2.66 9.9L4 44l10.4-2.72A19.93 19.93 0 0 0 24 44c11 0 20-9 20-20S35 4 24 4z"
+            fill="white"
+          />
+          <path
+            d="M33.4 27.9c-.5-.25-2.9-1.43-3.35-1.6-.45-.16-.77-.24-1.1.25-.32.5-1.25 1.6-1.54 1.93-.28.33-.57.37-1.06.12-.5-.25-2.1-.77-4-2.46-1.48-1.32-2.48-2.95-2.77-3.45-.29-.5-.03-.77.22-1.02.22-.22.5-.57.74-.86.24-.28.32-.5.48-.83.16-.33.08-.62-.04-.87-.12-.25-1.1-2.66-1.51-3.64-.4-.96-.8-.83-1.1-.85-.28-.01-.6-.02-.93-.02-.32 0-.85.12-1.3.62-.44.5-1.7 1.66-1.7 4.05s1.74 4.7 1.98 5.02c.24.33 3.43 5.23 8.31 7.34 1.16.5 2.07.8 2.78 1.03 1.17.37 2.23.32 3.07.19.94-.14 2.9-1.18 3.31-2.32.41-1.14.41-2.12.29-2.33-.12-.2-.45-.32-.95-.57z"
+            fill="#25D366"
+          />
+        </svg>
+      </a>
     </div>
   );
 }
