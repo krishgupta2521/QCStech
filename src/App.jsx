@@ -139,6 +139,8 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [pendingFormData, setPendingFormData] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -154,11 +156,56 @@ export default function App() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    const fd = new FormData(event.target);
+    setPendingFormData({
+      formEl: event.target,
+      name: fd.get("name") || "",
+      company: fd.get("company") || "",
+      email: fd.get("email") || "",
+      service: fd.get("service") || "",
+      message: fd.get("message") || "",
+    });
+    setShowEmailModal(true);
+  };
+
+  const buildEmailParts = () => {
+    if (!pendingFormData) return { subject: "", body: "" };
+    const { name, company, email, service, message } = pendingFormData;
+    const subject = `Enquiry from ${name} — ${service}`;
+    const body = [
+      `Name: ${name}`,
+      company ? `Company: ${company}` : "",
+      `Email: ${email}`,
+      `Service: ${service}`,
+      "",
+      `Message:`,
+      message,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+    return { subject, body };
+  };
+
+  const sendViaOutlook = () => {
+    const { subject, body } = buildEmailParts();
+    const mailto = `mailto:ashish@qcstech.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    finishSend();
+  };
+
+  const sendViaGmail = () => {
+    const { subject, body } = buildEmailParts();
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=ashish@qcstech.in&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(url, "_blank");
+    finishSend();
+  };
+
+  const finishSend = () => {
+    setShowEmailModal(false);
     setFormStatus("success");
-    setTimeout(() => {
-      setFormStatus("");
-      event.target.reset();
-    }, 3000);
+    if (pendingFormData?.formEl) pendingFormData.formEl.reset();
+    setPendingFormData(null);
+    setTimeout(() => setFormStatus(""), 3000);
   };
 
   return (
@@ -656,7 +703,7 @@ export default function App() {
   <CheckCircle2 size={18} className="text-[#a855f7]" /> 24/7 Support
 </div>
 <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#a855f7]" /> 10+ Years Exp
+  <CheckCircle2 size={18} className="text-[#a855f7]" /> 9+ Years Exp
 </div>
                 </div>
               </Reveal>
@@ -955,8 +1002,8 @@ export default function App() {
               {
                 icon: <Shield size={28} />,
                 color: "slate-ter",
-                title: "Buy & Sell Laptops/PCs",
-                desc: "We buy and sell old laptops, desktops, and computers at fair prices. Refurbished units tested, cleaned, and ready to use.",
+                title: "Sell Laptops/PCs",
+                desc: "We sell old laptops, desktops, and computers at fair prices. Refurbished units tested, cleaned, and ready to use.",
               },
                {
                 icon: <Laptop size={28} />,
@@ -1566,9 +1613,9 @@ export default function App() {
                       Head Office
                     </h4>
                     <p className="text-gray-400 mt-1 leading-relaxed">
-                      123 Tech Boulevard, Enterprise Park
+                      C-148, New Moti Nagar,
                       <br />
-                      Silicon Valley, CA 94000
+                      New Delhi 110015
                     </p>
                   </div>
                 </div>
@@ -1580,9 +1627,7 @@ export default function App() {
                   <div className="ml-5">
                     <h4 className="text-lg font-bold text-white">Email Us</h4>
                     <p className="text-gray-400 mt-1 leading-relaxed">
-                      solutions@qcstech.com
-                      <br />
-                      support@qcstech.com
+                      ashish@qcstech.in
                     </p>
                   </div>
                 </div>
@@ -1596,8 +1641,6 @@ export default function App() {
                       Call Support (24/7)
                     </h4>
                     <p className="text-gray-400 mt-1 leading-relaxed">
-                      +91 98995 36532
-                      <br />
                       +91 98995 36532
                     </p>
                   </div>
@@ -1623,6 +1666,7 @@ export default function App() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
                       style={{ background: "rgba(255,255,255,0.03)" }}
                       placeholder="John Doe"
@@ -1639,6 +1683,7 @@ export default function App() {
                     <input
                       type="text"
                       id="company"
+                      name="company"
                       className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
                       style={{ background: "rgba(255,255,255,0.03)" }}
                       placeholder="Your Company Ltd."
@@ -1657,6 +1702,7 @@ export default function App() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
                       style={{ background: "rgba(255,255,255,0.03)" }}
                       placeholder="john@company.com"
@@ -1672,6 +1718,7 @@ export default function App() {
                     </label>
                     <select
                       id="service"
+                      name="service"
                       className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white appearance-none"
                       style={{ background: "rgba(18,17,25,0.9)" }}
                     >
@@ -1709,6 +1756,7 @@ export default function App() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows="4"
                     className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600 resize-none"
                     style={{ background: "rgba(255,255,255,0.03)" }}
@@ -1939,6 +1987,102 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Email Client Selection Modal */}
+      {showEmailModal && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center px-4"
+          style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(12px)" }}
+          onClick={() => setShowEmailModal(false)}
+        >
+          <div
+            className="w-full max-w-xs rounded-3xl p-8 flex flex-col items-center"
+            style={{
+              background: "rgba(14,13,22,0.97)",
+              border: "1px solid rgba(255,255,255,0.07)",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.12)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="text-center mb-7">
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-indigo-400 mb-2">Send via</p>
+              <h3 className="text-lg font-semibold text-white">Choose a mail client</h3>
+            </div>
+
+            {/* Divider */}
+            <div className="w-full h-px mb-7" style={{ background: "rgba(255,255,255,0.06)" }} />
+
+            {/* Icon buttons */}
+            <div className="flex items-center justify-center gap-8 mb-7">
+              {/* Outlook */}
+              <button
+                onClick={sendViaOutlook}
+                title="Open in Outlook / Mail App"
+                className="group flex flex-col items-center gap-2.5"
+              >
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-200 group-hover:scale-110"
+                  style={{
+                    background: "rgba(0,120,212,0.12)",
+                    border: "1px solid rgba(0,120,212,0.25)",
+                    boxShadow: "0 4px 20px rgba(0,120,212,0.15)",
+                  }}
+                >
+                  <svg width="34" height="34" viewBox="0 0 48 48" fill="none">
+                    <rect x="2" y="2" width="44" height="44" rx="10" fill="#0078D4"/>
+                    <path d="M27 11h15v26H27V11z" fill="#50E6FF" opacity="0.35"/>
+                    <path d="M6 14.5L26 10v28L6 33.5V14.5z" fill="white"/>
+                    <ellipse cx="16" cy="24" rx="7" ry="8.5" fill="#0078D4"/>
+                  </svg>
+                </div>
+                <span className="text-[11px] font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide">Outlook</span>
+              </button>
+
+              {/* Separator */}
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-px h-5" style={{ background: "rgba(255,255,255,0.08)" }}/>
+                <span className="text-[10px] text-gray-600 font-medium">or</span>
+                <div className="w-px h-5" style={{ background: "rgba(255,255,255,0.08)" }}/>
+              </div>
+
+              {/* Gmail */}
+              <button
+                onClick={sendViaGmail}
+                title="Open in Gmail"
+                className="group flex flex-col items-center gap-2.5"
+              >
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-200 group-hover:scale-110"
+                  style={{
+                    background: "rgba(234,67,53,0.1)",
+                    border: "1px solid rgba(234,67,53,0.2)",
+                    boxShadow: "0 4px 20px rgba(234,67,53,0.12)",
+                  }}
+                >
+                  <svg width="34" height="34" viewBox="0 0 48 48" fill="none">
+                    <path d="M44 24.5c0-1.3-.1-2.6-.4-3.8H24v7.2h11.3c-.5 2.5-1.9 4.6-4 6v5h6.4C41.3 35.1 44 30.3 44 24.5z" fill="#4285F4"/>
+                    <path d="M24 45c5.7 0 10.5-1.9 14-5.1l-6.4-5c-1.9 1.3-4.3 2-7.6 2-5.8 0-10.8-3.9-12.5-9.2H5v5.2C8.5 40.9 15.8 45 24 45z" fill="#34A853"/>
+                    <path d="M11.5 27.7A12.5 12.5 0 0 1 11 24c0-1.3.2-2.5.5-3.7V15H5A20 20 0 0 0 4 24c0 3.2.8 6.3 2.1 9l5.4-5.3z" fill="#FBBC05"/>
+                    <path d="M24 11.5c3.2 0 6.1 1.1 8.4 3.3l6.2-6.2C34.5 5 29.7 3 24 3 15.8 3 8.5 7.1 5 15l6.5 5c1.7-5.2 6.7-8.5 12.5-8.5z" fill="#EA4335"/>
+                  </svg>
+                </div>
+                <span className="text-[11px] font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide">Gmail</span>
+              </button>
+            </div>
+
+            {/* Divider */}
+            <div className="w-full h-px mb-5" style={{ background: "rgba(255,255,255,0.06)" }} />
+
+            <button
+              onClick={() => setShowEmailModal(false)}
+              className="text-[12px] font-medium text-gray-600 hover:text-gray-400 transition-colors tracking-wide"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
