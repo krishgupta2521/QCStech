@@ -139,9 +139,9 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
   top: `${Math.random() * 100}%`,
   background:
     i % 3 === 0
-      ? "rgba(99,102,241,0.5)"
+      ? "rgba(14,165,233,0.5)"
       : i % 3 === 1
-        ? "rgba(168,85,247,0.4)"
+        ? "rgba(34,211,238,0.4)"
         : "rgba(100,116,139,0.3)",
   animationDuration: `${Math.random() * 10 + 8}s`,
   animationDelay: `${Math.random() * 8}s`,
@@ -225,19 +225,19 @@ export default function App() {
 
   return (
     <div
-      className="font-sans text-gray-100 antialiased selection:bg-[#6366f1] selection:text-white"
-      style={{ background: "#0c0b13" }}
+      className="font-sans text-gray-100 antialiased selection:bg-[#0ea5e9] selection:text-white"
+      style={{ background: "#060c18" }}
     >
       {/* â”€â”€ SCROLL PROGRESS BAR â”€â”€ */}
       <div
         className="fixed top-0 left-0 z-[100] h-[3px] transition-all duration-100"
         style={{
           width: `${scrollProgress}%`,
-          background: "linear-gradient(90deg, #6366f1, #a855f7, #6366f1)",
+          background: "linear-gradient(90deg, #0ea5e9, #22d3ee, #0ea5e9)",
           backgroundSize: "200% 100%",
           animation: "shimmer 2s linear infinite",
           boxShadow:
-            "0 0 12px rgba(99,102,241,0.9), 0 0 24px rgba(168,85,247,0.6)",
+            "0 0 12px rgba(14,165,233,0.9), 0 0 24px rgba(34,211,238,0.6)",
         }}
       />
 
@@ -296,13 +296,13 @@ export default function App() {
           75%     { transform: translateY(-55px) translateX(25px); opacity:0.8; }
         }
         @keyframes pulse-ring {
-          0%   { box-shadow: 0 0 0 0 rgba(99,102,241,0.5); }
-          70%  { box-shadow: 0 0 0 18px rgba(99,102,241,0); }
-          100% { box-shadow: 0 0 0 0 rgba(168,85,247,0); }
+          0%   { box-shadow: 0 0 0 0 rgba(14,165,233,0.5); }
+          70%  { box-shadow: 0 0 0 18px rgba(14,165,233,0); }
+          100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); }
         }
         @keyframes pulse-glow {
-          0%,100% { box-shadow: 0 0 20px rgba(99,102,105,0.35), 0 0 60px rgba(168,85,247,0.15); }
-          50%     { box-shadow: 0 0 50px rgba(99,102,105,0.7), 0 0 100px rgba(168,85,247,0.4); }
+          0%,100% { box-shadow: 0 0 20px rgba(99,102,105,0.35), 0 0 60px rgba(34,211,238,0.15); }
+          50%     { box-shadow: 0 0 50px rgba(99,102,105,0.7), 0 0 100px rgba(34,211,238,0.4); }
         }
         @keyframes scan-line {
           0%   { top: -5%; }
@@ -313,8 +313,8 @@ export default function App() {
           100% { transform: translateX(-100%); }
         }
         @keyframes border-dance {
-          0%,100% { border-color: rgba(99,102,241,0.25); }
-          33%     { border-color: rgba(168,85,247,0.35); }
+          0%,100% { border-color: rgba(14,165,233,0.25); }
+          33%     { border-color: rgba(34,211,238,0.35); }
           66%     { border-color: rgba(100,92,125,0.35); }
         }
         @keyframes float-y {
@@ -322,8 +322,8 @@ export default function App() {
           50%     { transform: translateY(-18px); }
         }
         @keyframes glow-text {
-          0%,100% { text-shadow: 0 0 20px rgba(99,102,241,0.45), 0 0 40px rgba(100,116,139,0.35); }
-          50%     { text-shadow: 0 0 40px rgba(99,102,241,0.8), 0 0 80px rgba(168,85,247,0.5); }
+          0%,100% { text-shadow: 0 0 20px rgba(14,165,233,0.45), 0 0 40px rgba(100,116,139,0.35); }
+          50%     { text-shadow: 0 0 40px rgba(14,165,233,0.8), 0 0 80px rgba(34,211,238,0.5); }
         }
 
         /* â”€â”€ UTILITY CLASSES â”€â”€ */
@@ -353,27 +353,27 @@ export default function App() {
         .site-surface { background: transparent; }
 
         .dark-card {
-          background: rgba(15, 14, 22, 0.65);
+          background: rgba(6, 15, 30, 0.65);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          border: 1px solid rgba(99,102,241,0.2);
+          border: 1px solid rgba(14,165,233,0.2);
           box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
           transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
         }
         .dark-card:hover {
-          border-color: rgba(168,85,247,0.3);
-          box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+          border-color: rgba(34,211,238,0.3);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
         }
 
         .gradient-text {
-          background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6, #22d3ee, #818cf8);
+          background: linear-gradient(135deg, #38bdf8, #0ea5e9, #22d3ee, #7dd3fc, #38bdf8);
           background-size: 300% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: shimmer 5s linear infinite;
         }
-        .section-divider { border-top: 1px solid rgba(99,102,241,0.1); }
+        .section-divider { border-top: 1px solid rgba(14,165,233,0.1); }
 
         .marquee-track {
           display: flex;
@@ -397,7 +397,7 @@ export default function App() {
         .pulse-glow  { animation: pulse-glow 3s ease-in-out infinite; }
         .scan-line {
           position: absolute; left: 0; right: 0; height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(99,102,241,0.7), rgba(168,85,247,0.7), transparent);
+          background: linear-gradient(90deg, transparent, rgba(14,165,233,0.7), rgba(34,211,238,0.7), transparent);
           animation: scan-line 3.5s linear infinite;
           z-index: 5; pointer-events: none;
         }
@@ -430,7 +430,7 @@ export default function App() {
         {/* Deep base */}
         <div
           className="absolute inset-0"
-          style={{ background: "#0c0b13" }}
+          style={{ background: "#060c18" }}
         ></div>
 
         {/* Aurora blob 1 â€” Deep purple/violet */}
@@ -442,7 +442,7 @@ export default function App() {
             top: "-20%",
             left: "-20%",
             background:
-              "radial-gradient(ellipse, rgba(99,102,241,0.4) 0%, rgba(41,35,60,0.2) 35%, transparent 70%)",
+              "radial-gradient(ellipse, rgba(14,165,233,0.4) 0%, rgba(6,30,60,0.2) 35%, transparent 70%)",
             borderRadius: "60% 40% 70% 30% / 50% 60% 40% 50%",
             filter: "blur(60px)",
           }}
@@ -470,7 +470,7 @@ export default function App() {
             bottom: "-10%",
             left: "20%",
             background:
-              "radial-gradient(ellipse, rgba(217,70,239,0.3) 0%, rgba(192,38,211,0.18) 40%, transparent 70%)",
+              "radial-gradient(ellipse, rgba(6,182,212,0.3) 0%, rgba(14,165,233,0.18) 40%, transparent 70%)",
             borderRadius: "50% 50% 40% 60% / 40% 60% 50% 50%",
             filter: "blur(80px)",
           }}
@@ -484,7 +484,7 @@ export default function App() {
             top: "40%",
             left: "40%",
             background:
-              "radial-gradient(ellipse, rgba(168,85,247,0.15) 0%, transparent 65%)",
+              "radial-gradient(ellipse, rgba(14,165,233,0.15) 0%, transparent 65%)",
             borderRadius: "50%",
             filter: "blur(90px)",
           }}
@@ -498,7 +498,7 @@ export default function App() {
             bottom: "15%",
             right: "10%",
             background:
-              "radial-gradient(ellipse, rgba(99,102,241,0.15) 0%, transparent 65%)",
+              "radial-gradient(ellipse, rgba(14,165,233,0.15) 0%, transparent 65%)",
             borderRadius: "50%",
             filter: "blur(75px)",
           }}
@@ -539,7 +539,7 @@ export default function App() {
                 background: "rgba(12,11,19,0.9)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                borderBottom: "1px solid rgba(99,102,241,0.1)",
+                borderBottom: "1px solid rgba(14,165,233,0.1)",
                 boxShadow: "0 4px 32px rgba(0,0,0,0.6)",
               }
             : {}),
@@ -562,7 +562,7 @@ export default function App() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-sm font-medium text-gray-300 hover:text-violet-400 transition-colors duration-200"
+                  className="text-sm font-medium text-gray-300 hover:text-sky-400 transition-colors duration-200"
                 >
                   {item}
                 </a>
@@ -571,8 +571,8 @@ export default function App() {
                 href="#contact"
                 className="px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
                 style={{
-                  background: "linear-gradient(135deg, #6366f1, #a855f7)",
-                  boxShadow: "0 0 20px rgba(99,102,241,0.4)",
+                  background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                  boxShadow: "0 0 20px rgba(14,165,233,0.4)",
                 }}
               >
                 Get Quote
@@ -594,14 +594,14 @@ export default function App() {
 
         {/* Mobile Menu Panel */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-neutral-950 border-t border-indigo-500/50 absolute w-full left-0 top-full shadow-xl">
+          <div className="md:hidden bg-neutral-950 border-t border-sky-500/50 absolute w-full left-0 top-full shadow-xl">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {["Services", "Solutions", "About", "Projects"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-indigo-500/20 rounded-md"
+                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-sky-500/20 rounded-md"
                 >
                   {item}
                 </a>
@@ -609,7 +609,7 @@ export default function App() {
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 mt-4 text-center font-medium bg-indigo-500 text-white rounded-md hover:bg-violet-500"
+                className="block px-3 py-2 mt-4 text-center font-medium bg-sky-500 text-white rounded-md hover:bg-sky-500"
               >
                 Get Quote
               </a>
@@ -625,7 +625,7 @@ export default function App() {
           top: "3px",
           height: "28px",
           background: "rgba(11,9,18,0.95)",
-          borderBottom: "1px solid rgba(99,102,241,0.2)",
+          borderBottom: "1px solid rgba(14,165,233,0.2)",
         }}
       >
         <div
@@ -652,8 +652,8 @@ export default function App() {
               "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
           }}
         ></div>
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-sky-600 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob"></div>
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-sky-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-[#1e1b4b] rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-4000"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -661,10 +661,10 @@ export default function App() {
             {/* Hero Content */}
             <div className="text-center lg:text-left pt-10 lg:pt-0">
               <Reveal from="left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-violet-400 text-sm font-medium mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel text-sky-400 text-sm font-medium mb-6">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
                   </span>
                   Enterprise Grade Solutions
                 </div>
@@ -672,7 +672,7 @@ export default function App() {
               <Reveal delay={100} from="left">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
                   Transforming Businesses Through{" "}
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-cyan-300">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-cyan-400 to-cyan-300">
                     Smart IT Solutions
                   </span>
                 </h1>
@@ -690,8 +690,8 @@ export default function App() {
                     href="#contact"
                     className="px-8 py-4 rounded-lg text-white font-semibold flex items-center justify-center gap-2 pulse-glow transition-all hover:scale-105"
                     style={{
-                      background: "linear-gradient(135deg, #6366f1, #a855f7)",
-                      boxShadow: "0 0 30px rgba(99,102,241,0.35)",
+                      background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                      boxShadow: "0 0 30px rgba(14,165,233,0.35)",
                     }}
                   >
                     Get Free Consultation <ArrowRight size={18} />
@@ -707,15 +707,15 @@ export default function App() {
 
               {/* Trust Indicators */}
               <Reveal delay={400} from="left">
-                <div className="relative z-10 mt-12 pt-6 border-t border-purple-950/40 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                <div className="relative z-10 mt-12 pt-6 border-t border-sky-950/40 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
                  <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#a855f7]" /> Best In the Industry
+  <CheckCircle2 size={18} className="text-[#22d3ee]" /> Best In the Industry
 </div>
 <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#a855f7]" /> 24/7 Support
+  <CheckCircle2 size={18} className="text-[#22d3ee]" /> 24/7 Support
 </div>
 <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#a855f7]" /> 9+ Years Exp
+  <CheckCircle2 size={18} className="text-[#22d3ee]" /> 9+ Years Exp
 </div>
                 </div>
               </Reveal>
@@ -729,11 +729,11 @@ export default function App() {
                 className="absolute inset-0 flex items-center justify-center"
               >
                 {/* Central Node */}
-                <div className="relative w-48 h-64 glass-panel rounded-xl border border-violet-500/20 flex flex-col items-center justify-evenly p-4 z-20 shadow-2xl shadow-violet-500/10">
+                <div className="relative w-48 h-64 glass-panel rounded-xl border border-sky-500/20 flex flex-col items-center justify-evenly p-4 z-20 shadow-2xl shadow-sky-500/10">
                   {[1, 2, 3].map((item) => (
                     <div
                       key={item}
-                      className="w-full h-12 bg-neutral-900 rounded border border-[#6366f1]/50 flex items-center px-3 gap-2"
+                      className="w-full h-12 bg-neutral-900 rounded border border-[#0ea5e9]/50 flex items-center px-3 gap-2"
                     >
                       <div
                         className={`w-2 h-2 rounded-full ${
@@ -742,7 +742,7 @@ export default function App() {
                             : "bg-green-500 animate-pulse"
                         }`}
                       ></div>
-                      <div className="w-2 h-2 rounded-full bg-violet-500"></div>
+                      <div className="w-2 h-2 rounded-full bg-sky-500"></div>
                       <div className="w-2 h-2 rounded-full bg-gray-700"></div>
                       <div className="flex-1"></div>
                       <div className="w-16 h-1 bg-gray-700 rounded"></div>
@@ -751,20 +751,20 @@ export default function App() {
                 </div>
 
                 {/* Orbiting Elements */}
-                <div className="absolute w-80 h-80 border border-[#6366f1]/40 rounded-full animate-[spin_20s_linear_infinite]">
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-neutral-900 rounded border border-violet-500 flex items-center justify-center text-violet-400">
+                <div className="absolute w-80 h-80 border border-[#0ea5e9]/40 rounded-full animate-[spin_20s_linear_infinite]">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-neutral-900 rounded border border-sky-500 flex items-center justify-center text-sky-400">
                     <Network size={16} />
                   </div>
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-neutral-900 rounded border border-violet-500 flex items-center justify-center text-violet-400">
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-neutral-900 rounded border border-sky-500 flex items-center justify-center text-sky-400">
                     <Shield size={16} />
                   </div>
                 </div>
 
-                <div className="absolute w-96 h-96 border border-[#6366f1]/20 rounded-full animate-[spin_30s_linear_infinite_reverse]">
-                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-8 h-8 bg-neutral-900 rounded border border-[#a855f7] flex items-center justify-center text-cyan-300 shadow-lg shadow-[#a855f7]/20">
+                <div className="absolute w-96 h-96 border border-[#0ea5e9]/20 rounded-full animate-[spin_30s_linear_infinite_reverse]">
+                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-8 h-8 bg-neutral-900 rounded border border-[#22d3ee] flex items-center justify-center text-cyan-300 shadow-lg shadow-[#22d3ee]/20">
                     <Server size={16} />
                   </div>
-                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-8 h-8 bg-neutral-900 rounded border border-violet-500 flex items-center justify-center text-violet-300 shadow-lg shadow-violet-500/20">
+                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-8 h-8 bg-neutral-900 rounded border border-sky-500 flex items-center justify-center text-sky-300 shadow-lg shadow-sky-500/20">
                     <Video size={16} />
                   </div>
                 </div>
@@ -776,14 +776,14 @@ export default function App() {
                 >
                   <path
                     d="M 200,200 L 50,100"
-                    stroke="#6366f1"
+                    stroke="#0ea5e9"
                     strokeWidth="1"
                     strokeDasharray="4 4"
                     fill="none"
                   />
                   <path
                     d="M 200,200 L 350,100"
-                    stroke="#a855f7"
+                    stroke="#22d3ee"
                     strokeWidth="1"
                     strokeDasharray="4 4"
                     fill="none"
@@ -818,31 +818,31 @@ export default function App() {
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   <Counter target={9} />
                 </div>
-                <div className="text-xs font-semibold text-violet-400/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-400/60 uppercase tracking-widest">
                   Years Experience
                 </div>
               </div>
-              <div className="p-4 border-l border-[#6366f1]/30">
+              <div className="p-4 border-l border-[#0ea5e9]/30">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   <Counter target={500} suffix="+" />
                 </div>
-                <div className="text-xs font-semibold text-violet-400/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-400/60 uppercase tracking-widest">
                   Projects Delivered
                 </div>
               </div>
-              <div className="p-4 md:border-l border-[#6366f1]/30">
+              <div className="p-4 md:border-l border-[#0ea5e9]/30">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   <Counter target={350} suffix="+" />
                 </div>
-                <div className="text-xs font-semibold text-violet-400/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-400/60 uppercase tracking-widest">
                   Enterprise Clients
                 </div>
               </div>
-              <div className="p-4 border-l border-[#6366f1]/30">
+              <div className="p-4 border-l border-[#0ea5e9]/30">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   24/7
                 </div>
-                <div className="text-xs font-semibold text-purple-300/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-300/60 uppercase tracking-widest">
                   Support Available
                 </div>
               </div>
@@ -850,6 +850,88 @@ export default function App() {
           </Reveal>
         </div>
       </section>
+
+      {/* Brands Marquee */}
+      <div className="relative z-10 py-14 overflow-hidden section-divider" style={{ background: "rgba(255,255,255,0.015)", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <p className="text-center text-xs font-semibold tracking-[0.22em] uppercase text-gray-500 mb-10">Brands We Deal In</p>
+        <div className="relative overflow-hidden">
+          <div className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #0c0b13, transparent)" }} />
+          <div className="absolute right-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #0c0b13, transparent)" }} />
+          <div className="flex animate-[marquee_40s_linear_infinite] w-max">
+            {[
+              { name: "Dell",       slug: "dell",           color: "#0076CE" },
+              { name: "HP",         slug: "hp",             color: "#0096D6" },
+              { name: "Lenovo",     slug: "lenovo",         color: "#E2231A" },
+              { name: "Acer",       slug: "acer",           color: "#83B81A" },
+              { name: "Samsung",    slug: "samsung",        color: "#1428A0" },
+              { name: "Microsoft",  slug: "microsoft",      color: "#737373" },
+              { name: "Epson",      slug: "epson",          color: "#003087" },
+              { name: "WD",         slug: "westerndigital", color: "#E35205" },
+              { name: "Seagate",    slug: "seagate",        color: "#00A67C" },
+              { name: "Hikvision",  slug: "hikvision",      color: "#C8102E" },
+              { name: "Honeywell",  slug: "honeywell",      color: "#E2231A" },
+              { name: "Zebronics",  slug: null,             color: "#f59e0b" },
+              { name: "Yealink",    slug: null,             color: "#00A651" },
+              { name: "CP Plus",    slug: null,             color: "#D22B2B" },
+              { name: "Brio",       slug: null,             color: "#0ea5e9" },
+              // duplicate for seamless loop
+              { name: "Dell",       slug: "dell",           color: "#0076CE" },
+              { name: "HP",         slug: "hp",             color: "#0096D6" },
+              { name: "Lenovo",     slug: "lenovo",         color: "#E2231A" },
+              { name: "Acer",       slug: "acer",           color: "#83B81A" },
+              { name: "Samsung",    slug: "samsung",        color: "#1428A0" },
+              { name: "Microsoft",  slug: "microsoft",      color: "#737373" },
+              { name: "Epson",      slug: "epson",          color: "#003087" },
+              { name: "WD",         slug: "westerndigital", color: "#E35205" },
+              { name: "Seagate",    slug: "seagate",        color: "#00A67C" },
+              { name: "Hikvision",  slug: "hikvision",      color: "#C8102E" },
+              { name: "Honeywell",  slug: "honeywell",      color: "#E2231A" },
+              { name: "Zebronics",  slug: null,             color: "#f59e0b" },
+              { name: "Yealink",    slug: null,             color: "#00A651" },
+              { name: "CP Plus",    slug: null,             color: "#D22B2B" },
+              { name: "Brio",       slug: null,             color: "#0ea5e9" },
+            ].map((brand, i) => (
+              <div key={i} className="flex flex-col items-center justify-center gap-3 mx-8 shrink-0 w-32">
+                {brand.slug ? (
+                  <div
+                    className="w-24 h-24 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.09)",
+                      boxShadow: `0 0 24px ${brand.color}22`,
+                    }}
+                  >
+                    <img
+                      src={`https://cdn.simpleicons.org/${brand.slug}/ffffff`}
+                      alt={brand.name}
+                      width="52"
+                      height="52"
+                      style={{ filter: `drop-shadow(0 0 8px ${brand.color}99)` }}
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="w-24 h-24 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                    style={{
+                      background: `${brand.color}15`,
+                      border: `1px solid ${brand.color}45`,
+                      boxShadow: `0 0 24px ${brand.color}22`,
+                    }}
+                  >
+                    <span className="text-sm font-extrabold text-center leading-tight px-2" style={{ color: brand.color }}>
+                      {brand.name}
+                    </span>
+                  </div>
+                )}
+                <span className="text-xs font-semibold text-gray-400 tracking-wide text-center whitespace-nowrap">
+                  {brand.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* About Us Section */}
       <section
@@ -861,7 +943,7 @@ export default function App() {
             {/* Aesthetic Visual Area */}
             <Reveal from="left" className="relative">
               {/* Background Glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/15 to-violet-500/15 rounded-[2.5rem] transform rotate-3 blur-2xl opacity-60"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-sky-500/15 to-cyan-500/15 rounded-[2.5rem] transform rotate-3 blur-2xl opacity-60"></div>
 
               <div className="relative">
                 {/* Main Image Container */}
@@ -882,15 +964,15 @@ export default function App() {
                   className="absolute -right-6 top-10 dark-card p-4 rounded-2xl flex items-center gap-4 animate-bounce z-20"
                   style={{ animationDuration: "4s" }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-fuchsia-500 rounded-full flex items-center justify-center text-white shadow-inner">
+                  <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-full flex items-center justify-center text-white shadow-inner">
                     <Lock size={20} />
                   </div>
                   <div>
                     <div className="font-bold text-white text-sm">
                       Enterprise Security
                     </div>
-                    <div className="text-xs text-violet-400 font-medium flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
+                    <div className="text-xs text-sky-400 font-medium flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
                       Active Protection
                     </div>
                   </div>
@@ -901,14 +983,14 @@ export default function App() {
                   className="absolute -left-8 bottom-12 dark-card p-4 rounded-2xl flex items-center gap-4 animate-bounce z-20"
                   style={{ animationDuration: "3.5s", animationDelay: "1s" }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#483c6c] to-indigo-500 rounded-full flex items-center justify-center text-white shadow-inner">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#483c6c] to-sky-500 rounded-full flex items-center justify-center text-white shadow-inner">
                     <Activity size={20} />
                   </div>
                   <div>
                     <div className="font-bold text-white text-sm">
                       System Uptime
                     </div>
-                    <div className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-500">
+                    <div className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-500">
                       99.99%
                     </div>
                   </div>
@@ -925,7 +1007,7 @@ export default function App() {
             </Reveal>
 
             <Reveal delay={200} from="right">
-              <span className="text-violet-400 font-bold tracking-wider uppercase text-sm">
+              <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 About Our Company
               </span>
               <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
@@ -941,7 +1023,7 @@ export default function App() {
 
               <ul className="space-y-4 mb-10">
                 <li className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400">
                     <Check size={16} strokeWidth={3} />
                   </div>
                   <span className="ml-4 text-gray-200 font-medium pt-1">
@@ -949,7 +1031,7 @@ export default function App() {
                   </span>
                 </li>
                 <li className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400">
                     <Check size={16} strokeWidth={3} />
                   </div>
                   <span className="ml-4 text-gray-200 font-medium pt-1">
@@ -957,7 +1039,7 @@ export default function App() {
                   </span>
                 </li>
                 <li className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400">
                     <Check size={16} strokeWidth={3} />
                   </div>
                   <span className="ml-4 text-gray-200 font-medium pt-1">
@@ -971,8 +1053,8 @@ export default function App() {
                 href="#contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-white transition-all duration-300 gap-2 group hover:scale-105"
                 style={{
-                  background: "linear-gradient(135deg, #6366f1, #a855f7)",
-                  boxShadow: "0 0 30px rgba(99,102,241,0.30)",
+                  background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                  boxShadow: "0 0 30px rgba(14,165,233,0.30)",
                 }}
               >
                 Discover Our Approach{" "}
@@ -990,7 +1072,7 @@ export default function App() {
       <section id="services" className="py-24 bg-transparent section-divider">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal from="bottom" className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[#a855f7] font-bold tracking-wider uppercase text-sm">
+            <span className="text-[#22d3ee] font-bold tracking-wider uppercase text-sm">
               Core Expertise
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">
@@ -1014,14 +1096,14 @@ export default function App() {
               {
                 icon: <Shield size={28} />,
                 color: "slate-ter",
-                title: "Sell Laptops/PCs",
-                desc: "We sell old laptops, desktops, and computers at fair prices. Refurbished units tested, cleaned, and ready to use.",
+                title: "IT  Hardware",
+                desc: "We sell laptops, desktops, workstations, switches, Storage at fair prices. ",
               },
                {
                 icon: <Laptop size={28} />,
                 color: "slate-five",
-                title: "Computer Hardware & Accessories",
-                desc: "Sales of laptops, desktops, workstations, printers, keyboards, mice, and all computer accessories. New & genuine parts.",
+                title: "Computer Accessories",
+                desc: "We provide a wide range of computer accessories including monitors, keyboards, mice, printers, and networking peripherals to enhance your IT setup.",
               },
               {
                 icon: <Server size={28} />,
@@ -1045,11 +1127,11 @@ export default function App() {
               // Updated slate/grey aesthetic mapping
               const colorMap = {
                 slate:
-                  "bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white",
+                  "bg-sky-500/10 text-sky-400 group-hover:bg-sky-500 group-hover:text-white",
                 "slate-sec":
                   "bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white",
                 "slate-ter":
-                  "bg-fuchsia-500/10 text-fuchsia-400 group-hover:bg-fuchsia-500 group-hover:text-white",
+                  "bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white",
                 "slate-qua":
                   "bg-gradient-to-br from-emerald-500/10 to-teal-500/10 text-emerald-400 group-hover:bg-gradient-to-br group-hover:from-emerald-500 group-hover:to-teal-500 group-hover:text-white",
                 "slate-five":
@@ -1073,7 +1155,7 @@ export default function App() {
                   from={index % 2 === 0 ? "left" : "right"}
                 >
                   <div className="dark-card rounded-2xl p-8 transition-all duration-300 group h-full flex flex-col relative overflow-hidden hover:scale-[1.03]">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-violet-500/5 to-transparent rounded-bl-full -z-10 transition-all duration-300 group-hover:scale-150 group-hover:opacity-50"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-sky-500/5 to-transparent rounded-bl-full -z-10 transition-all duration-300 group-hover:scale-150 group-hover:opacity-50"></div>
 
                     <div
                       className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 ${
@@ -1094,7 +1176,7 @@ export default function App() {
                     </p>
                     <a
                       href="#contact"
-                      className={`font-semibold inline-flex items-center group/link mt-auto text-violet-400 hover:text-violet-300`}
+                      className={`font-semibold inline-flex items-center group/link mt-auto text-sky-400 hover:text-sky-300`}
                     >
                       Learn More{" "}
                       <ArrowRight
@@ -1123,8 +1205,8 @@ export default function App() {
         className="py-24 text-white overflow-hidden relative section-divider"
       >
         {/* Ambient glow */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-900/10 to-transparent pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-indigo-600/5 to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky-900/10 to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-sky-600/5 to-transparent pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Reveal
@@ -1132,7 +1214,7 @@ export default function App() {
             className="flex flex-col md:flex-row justify-between items-end mb-14"
           >
             <div className="max-w-2xl">
-              <span className="text-violet-400 font-bold tracking-wider uppercase text-sm">
+              <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 Targeted Solutions
               </span>
               <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">
@@ -1146,7 +1228,7 @@ export default function App() {
             <div className="mt-6 md:mt-0">
               <a
                 href="#"
-                className="text-white border border-violet-500/30 hover:border-violet-400 hover:text-violet-400 px-6 py-3 rounded-full transition-all duration-300 font-medium block text-center hover:shadow-lg hover:shadow-violet-500/10"
+                className="text-white border border-sky-500/30 hover:border-sky-400 hover:text-sky-400 px-6 py-3 rounded-full transition-all duration-300 font-medium block text-center hover:shadow-lg hover:shadow-sky-500/10"
               >
                 View All Solutions
               </a>
@@ -1163,7 +1245,7 @@ export default function App() {
                 title: "Corporate Offices",
                 desc: "Complete office setup including networking, employee workstations, biometric access, and secure Wi-Fi.",
                 img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600",
-                color: "from-indigo-500 to-blue-600",
+                color: "from-sky-500 to-blue-600",
               },
               {
                 icon: <GraduationCap size={26} />,
@@ -1177,7 +1259,7 @@ export default function App() {
                 title: "Retail Chains",
                 desc: "POS hardware, extensive CCTV coverage, inventory scanning, and reliable network backbones for retail stores.",
                 img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600",
-                color: "from-fuchsia-500 to-pink-600",
+                color: "from-cyan-500 to-pink-600",
               },
               {
                 icon: <HardHat size={26} />,
@@ -1198,7 +1280,7 @@ export default function App() {
                 title: "Hospitality & Hotels",
                 desc: "High-density guest Wi-Fi, in-room entertainment systems, property management networks, and smart room automation.",
                 img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
-                color: "from-violet-500 to-purple-600",
+                color: "from-sky-500 to-purple-600",
               },
               {
                 icon: <ShoppingCart size={26} />,
@@ -1213,7 +1295,7 @@ export default function App() {
                 title: "Corporate Offices",
                 desc: "Complete office setup including networking, employee workstations, biometric access, and secure Wi-Fi.",
                 img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600",
-                color: "from-indigo-500 to-blue-600",
+                color: "from-sky-500 to-blue-600",
               },
               {
                 icon: <GraduationCap size={26} />,
@@ -1227,7 +1309,7 @@ export default function App() {
                 title: "Retail Chains",
                 desc: "POS hardware, extensive CCTV coverage, inventory scanning, and reliable network backbones for retail stores.",
                 img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600",
-                color: "from-fuchsia-500 to-pink-600",
+                color: "from-cyan-500 to-pink-600",
               },
               {
                 icon: <HardHat size={26} />,
@@ -1248,7 +1330,7 @@ export default function App() {
                 title: "Hospitality & Hotels",
                 desc: "High-density guest Wi-Fi, in-room entertainment systems, property management networks, and smart room automation.",
                 img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
-                color: "from-violet-500 to-purple-600",
+                color: "from-sky-500 to-purple-600",
               },
               {
                 icon: <ShoppingCart size={26} />,
@@ -1264,7 +1346,7 @@ export default function App() {
                 style={{
                   width: "340px",
                   height: "420px",
-                  border: "1px solid rgba(99,102,241,0.15)",
+                  border: "1px solid rgba(14,165,233,0.15)",
                 }}
               >
                 {/* Scan line effect */}
@@ -1295,7 +1377,7 @@ export default function App() {
                     {card.desc}
                   </p>
                   <div className="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-150">
-                    <span className="inline-flex items-center gap-1.5 text-violet-400 text-sm font-semibold">
+                    <span className="inline-flex items-center gap-1.5 text-sky-400 text-sm font-semibold">
                       Learn More{" "}
                       <ArrowRight
                         size={14}
@@ -1320,7 +1402,7 @@ export default function App() {
                 height: "6px",
                 background:
                   i === 0
-                    ? "linear-gradient(90deg, #6366f1, #a855f7)"
+                    ? "linear-gradient(90deg, #0ea5e9, #22d3ee)"
                     : "rgba(255,255,255,0.15)",
               }}
             />
@@ -1332,7 +1414,7 @@ export default function App() {
       <section className="py-24 bg-transparent relative section-divider">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal from="bottom" className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-[#a855f7] font-bold tracking-wider uppercase text-sm">
+            <span className="text-[#22d3ee] font-bold tracking-wider uppercase text-sm">
               How We Work
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">
@@ -1350,7 +1432,7 @@ export default function App() {
               className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-0.5"
               style={{
                 background:
-                  "linear-gradient(90deg, transparent, rgba(99,102,241,0.3), rgba(168,85,247,0.3), rgba(100,92,125,0.3), transparent)",
+                  "linear-gradient(90deg, transparent, rgba(14,165,233,0.3), rgba(34,211,238,0.3), rgba(100,92,125,0.3), transparent)",
               }}
             ></div>
 
@@ -1387,14 +1469,14 @@ export default function App() {
                   <div
                     className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center text-2xl font-bold mb-6 relative z-10 transition-transform hover:scale-110 ${
                       item.highlight
-                        ? "border-4 border-violet-400/40 text-white shadow-xl shadow-violet-500/40"
+                        ? "border-4 border-sky-400/40 text-white shadow-xl shadow-sky-500/40"
                         : "border-4 border-white/5 text-gray-300 shadow-lg"
                     }`}
                     style={
                       item.highlight
                         ? {
                             background:
-                              "linear-gradient(135deg, #6366f1, #a855f7)",
+                              "linear-gradient(135deg, #0284c7, #0ea5e9)",
                           }
                         : { background: "rgba(255,255,255,0.03)" }
                     }
@@ -1420,7 +1502,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Why Choose Us */}
             <Reveal from="left">
-              <span className="text-violet-400 font-bold tracking-wider uppercase text-sm">
+              <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 Why Choose Us
               </span>
               <h2 className="mt-2 text-3xl md:text-4xl font-extrabold text-white mb-10">
@@ -1449,7 +1531,7 @@ export default function App() {
                     className="flex p-4 rounded-2xl dark-card hover:scale-[1.01] transition-all"
                   >
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
                         {item.icon}
                       </div>
                     </div>
@@ -1472,19 +1554,19 @@ export default function App() {
                 id="projects"
                 className="dark-card p-8 md:p-10 rounded-[2rem] relative overflow-hidden h-full flex flex-col"
               >
-                <div className="absolute top-0 right-0 bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white text-xs font-bold px-6 py-2 rounded-bl-2xl z-10 shadow-lg shadow-violet-500/20">
+                <div className="absolute top-0 right-0 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-bold px-6 py-2 rounded-bl-2xl z-10 shadow-lg shadow-sky-500/20">
                   Featured Case Study
                 </div>
 
                 <h3 className="text-2xl font-extrabold text-white mb-2 mt-2">
                   TechHub Solutions Datacenter
                 </h3>
-                <p className="text-violet-400 text-sm font-bold tracking-wide uppercase mb-6">
+                <p className="text-sky-400 text-sm font-bold tracking-wide uppercase mb-6">
                   Server & Network Overhaul
                 </p>
 
                 <div className="relative rounded-2xl overflow-hidden mb-8 shadow-lg group flex-grow">
-                  <div className="absolute inset-0 bg-indigo-500/5 group-hover:bg-transparent transition-colors z-10"></div>
+                  <div className="absolute inset-0 bg-sky-500/5 group-hover:bg-transparent transition-colors z-10"></div>
                   <img
                     src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600"
                     alt="Datacenter Network Racks"
@@ -1496,7 +1578,7 @@ export default function App() {
                   className="grid grid-cols-2 gap-6 mb-8 rounded-2xl p-5"
                   style={{
                     background: "rgba(0,0,0,0.4)",
-                    border: "1px solid rgba(99,102,241,0.1)",
+                    border: "1px solid rgba(14,165,233,0.1)",
                   }}
                 >
                   <div>
@@ -1523,8 +1605,8 @@ export default function App() {
                   href="#"
                   className="w-full block text-center text-white font-bold py-4 rounded-xl transition-all hover:scale-[1.02] mt-auto"
                   style={{
-                    background: "linear-gradient(135deg, #6366f1, #a855f7)",
-                    boxShadow: "0 0 20px rgba(99,102,241,0.3)",
+                    background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                    boxShadow: "0 0 20px rgba(14,165,233,0.3)",
                   }}
                 >
                   View Full Portfolio
@@ -1548,15 +1630,15 @@ export default function App() {
               "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23ffffff\\' fill-opacity=\\'1\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
           }}
         ></div>
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-25"></div>
-        <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-indigo-600 rounded-full mix-blend-multiply filter blur-[80px] opacity-25"></div>
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-25"></div>
+        <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-sky-600 rounded-full mix-blend-multiply filter blur-[80px] opacity-25"></div>
 
         <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             Ready to Upgrade Your <br className="hidden md:block" /> IT
             Infrastructure?
           </h2>
-          <p className="text-xl text-violet-300 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-sky-300 mb-10 max-w-2xl mx-auto">
             Partner with experts to build secure, scalable, and future-ready
             technology solutions tailored for your enterprise.
           </p>
@@ -1586,7 +1668,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Info */}
             <Reveal from="left">
-              <span className="text-violet-400 font-bold tracking-wider uppercase text-sm">
+              <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 Get In Touch
               </span>
               <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white mb-6">
@@ -1600,7 +1682,7 @@ export default function App() {
 
               <div className="space-y-6">
                 <div className="flex items-start group dark-card p-4 rounded-2xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-14 h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center text-violet-400 transition-colors">
+                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400 transition-colors">
                     <MapPin size={24} />
                   </div>
                   <div className="ml-5">
@@ -1616,7 +1698,7 @@ export default function App() {
                 </div>
 
                 <div className="flex items-start group dark-card p-4 rounded-2xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-14 h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center text-violet-400 transition-colors">
+                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400 transition-colors">
                     <Mail size={24} />
                   </div>
                   <div className="ml-5">
@@ -1628,7 +1710,7 @@ export default function App() {
                 </div>
 
                 <div className="flex items-start group dark-card p-4 rounded-2xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-violet-300 transition-colors">
+                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-300 transition-colors">
                     <Phone size={24} />
                   </div>
                   <div className="ml-5">
@@ -1662,7 +1744,7 @@ export default function App() {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
                       style={{ background: "rgba(255,255,255,0.03)" }}
                       placeholder="John Doe"
                       required
@@ -1679,7 +1761,7 @@ export default function App() {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
                       style={{ background: "rgba(255,255,255,0.03)" }}
                       placeholder="Your Company Ltd."
                     />
@@ -1698,7 +1780,7 @@ export default function App() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
                       style={{ background: "rgba(255,255,255,0.03)" }}
                       placeholder="john@company.com"
                       required
@@ -1714,28 +1796,31 @@ export default function App() {
                     <select
                       id="service"
                       name="service"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white appearance-none"
+                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white appearance-none"
                       style={{ background: "rgba(18,17,25,0.9)" }}
                     >
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
                         CCTV Installation
                       </option>
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
                         Computer Hardware & Accessories
                       </option>
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
                         Buy / Sell Laptops & PCs
                       </option>
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
                         Networking & Wi-Fi
                       </option>
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
                         Server Setup
                       </option>
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
                         AMC & IT Support
                       </option>
-                      <option style={{ background: "#121119" }}>
+                      <option style={{ background: "#060c18" }}>
+                        IT Hardware Asset Management
+                      </option>
+                      <option style={{ background: "#060c18" }}>
                         Other
                       </option>
                     </select>
@@ -1753,7 +1838,7 @@ export default function App() {
                     id="message"
                     name="message"
                     rows="4"
-                    className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600 resize-none"
+                    className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600 resize-none"
                     style={{ background: "rgba(255,255,255,0.03)" }}
                     placeholder="Briefly describe your requirements..."
                     required
@@ -1764,8 +1849,8 @@ export default function App() {
                   type="submit"
                   className="w-full text-white font-bold py-4 rounded-xl transition-all duration-300 text-lg flex justify-center items-center gap-2 hover:scale-[1.02]"
                   style={{
-                    background: "linear-gradient(135deg, #6366f1, #a855f7)",
-                    boxShadow: "0 0 30px rgba(99,102,241,0.4)",
+                    background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                    boxShadow: "0 0 30px rgba(14,165,233,0.4)",
                   }}
                 >
                   Send Request <ArrowRight size={20} />
@@ -1787,8 +1872,8 @@ export default function App() {
       <footer
         className="pt-20 pb-8"
         style={{
-          background: "rgba(12,11,19,0.98)",
-          borderTop: "1px solid rgba(99,102,241,0.1)",
+          background: "rgba(4,10,20,0.98)",
+          borderTop: "1px solid rgba(14,165,233,0.1)",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1808,19 +1893,19 @@ export default function App() {
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-900 border border-indigo-500/40 flex items-center justify-center text-gray-400 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white transition-all"
+                  className="w-10 h-10 rounded-full bg-neutral-900 border border-sky-500/40 flex items-center justify-center text-gray-400 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all"
                 >
                   <Globe size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-900 border border-indigo-500/40 flex items-center justify-center text-gray-400 hover:bg-violet-500 hover:border-violet-500 hover:text-white transition-all"
+                  className="w-10 h-10 rounded-full bg-neutral-900 border border-sky-500/40 flex items-center justify-center text-gray-400 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all"
                 >
                   <MessageCircle size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-900 border border-indigo-500/40 flex items-center justify-center text-gray-400 hover:bg-indigo-600 hover:border-indigo-500 hover:text-white transition-all"
+                  className="w-10 h-10 rounded-full bg-neutral-900 border border-sky-500/40 flex items-center justify-center text-gray-400 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all"
                 >
                   <Share2 size={18} />
                 </a>
@@ -1834,7 +1919,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     CCTV Installation
                   </a>
@@ -1842,7 +1927,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Computer Hardware & Accessories
                   </a>
@@ -1850,7 +1935,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Buy & Sell Laptops/PCs
                   </a>
@@ -1858,7 +1943,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Networking & Wi-Fi
                   </a>
@@ -1866,7 +1951,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Server Infrastructure
                   </a>
@@ -1874,7 +1959,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     IT Support & AMC
                   </a>
@@ -1891,7 +1976,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Corporate Offices
                   </a>
@@ -1899,7 +1984,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Healthcare Facilities
                   </a>
@@ -1907,7 +1992,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Educational Institutes
                   </a>
@@ -1915,7 +2000,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Retail Chains
                   </a>
@@ -1923,7 +2008,7 @@ export default function App() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-violet-400 transition-colors"
+                    className="hover:text-sky-400 transition-colors"
                   >
                     Manufacturing Units
                   </a>
@@ -1950,12 +2035,12 @@ export default function App() {
                 <input
                   type="email"
                   placeholder="Enter email address"
-                  className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-indigo-500/40 text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all placeholder-gray-600"
+                  className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-sky-500/40 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder-gray-600"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full bg-indigo-500 font-bold py-3 rounded-xl text-white hover:bg-violet-500 transition-colors flex justify-center items-center gap-2"
+                  className="w-full bg-sky-500 font-bold py-3 rounded-xl text-white hover:bg-sky-500 transition-colors flex justify-center items-center gap-2"
                 >
                   Subscribe Now
                 </button>
@@ -1963,7 +2048,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-[#6366f1]/30 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
+          <div className="pt-8 border-t border-[#0ea5e9]/30 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
             <div>
               &copy; {new Date().getFullYear()} QCS Tech Solutions. All rights
               reserved.
@@ -1992,13 +2077,13 @@ export default function App() {
             style={{
               background: "rgba(14,13,22,0.97)",
               border: "1px solid rgba(255,255,255,0.07)",
-              boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.12)",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(14,165,233,0.12)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className="text-center mb-7">
-              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-indigo-400 mb-2">Send via</p>
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-sky-400 mb-2">Send via</p>
               <h3 className="text-lg font-semibold text-white">Choose a mail client</h3>
             </div>
 
