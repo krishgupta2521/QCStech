@@ -7,6 +7,8 @@ import {
   Check,
   CheckCircle2,
   Clock,
+  Cloud,
+  Cpu,
   GraduationCap,
   Globe,
   Handshake,
@@ -221,6 +223,15 @@ export default function App() {
     setTimeout(() => setFormStatus(""), 3000);
   };
 
+  const hubNodes = [
+    { icon: <Network size={22} />,  label: "Network",  x: 230, y: 58,  dir: "in" },
+    { icon: <Shield size={22} />,   label: "Security", x: 379, y: 144, dir: "out" },
+    { icon: <Server size={22} />,   label: "Servers",  x: 379, y: 316, dir: "in" },
+    { icon: <Video size={22} />,    label: "CCTV",     x: 230, y: 402, dir: "out" },
+    { icon: <Cloud size={22} />,    label: "Cloud",    x: 81,  y: 316, dir: "in" },
+    { icon: <Activity size={22} />, label: "Monitor",  x: 81,  y: 144, dir: "out" },
+  ];
+
   return (
     <div
       className="font-sans text-gray-900 antialiased selection:bg-[#0ea5e9] selection:text-white"
@@ -376,7 +387,7 @@ export default function App() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 40s linear infinite;
+          animation: marquee 5s linear infinite;
         }
         .marquee-track:hover { animation-play-state: paused; }
         .marquee-wrapper {
@@ -419,6 +430,35 @@ export default function App() {
             radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.3) 0%, transparent 100%);
           animation: stars-drift 60s linear infinite;
         }
+
+        /* ── HERO NETWORK HUB ── */
+        @keyframes hub-pulse-ring {
+          0%   { transform: translate(-50%,-50%) scale(0.5); opacity: 0.7; }
+          100% { transform: translate(-50%,-50%) scale(4);   opacity: 0; }
+        }
+        @keyframes core-glow {
+          0%,100% { box-shadow: 0 0 0 0 rgba(14,165,233,0.45), 0 0 35px rgba(14,165,233,0.45); }
+          50%     { box-shadow: 0 0 0 16px rgba(14,165,233,0), 0 0 70px rgba(34,211,238,0.6); }
+        }
+        @keyframes node-bob {
+          0%,100% { transform: translateY(0); }
+          50%     { transform: translateY(-7px); }
+        }
+        @keyframes dash-flow     { to { stroke-dashoffset: -40; } }
+        @keyframes spin-slow     { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spin-slow-rev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+        .hub-ring {
+          position: absolute; top: 50%; left: 50%;
+          width: 96px; height: 96px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(14,165,233,0.4);
+          transform: translate(-50%,-50%);
+          animation: hub-pulse-ring 3.6s ease-out infinite;
+        }
+        .hub-core { animation: core-glow 3s ease-in-out infinite; }
+        .hub-line { stroke-dasharray: 5 7; animation: dash-flow 0.9s linear infinite; }
+        .hub-orbit { position: absolute; border-radius: 50%; border: 1px dashed rgba(14,165,233,0.22); }
       `,
         }}
       />
@@ -684,7 +724,13 @@ export default function App() {
                   </a>
                   <a
                     href="#services"
-                    className="px-8 py-4 rounded-lg glass-panel text-white font-semibold hover:bg-white/5 transition-all flex items-center justify-center gap-2 border-animate"
+                    className="px-8 py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 hover:scale-[1.03]"
+                    style={{
+                      background: "rgba(255,255,255,0.9)",
+                      border: "2px solid rgba(14,165,233,0.4)",
+                      color: "#0ea5e9",
+                      boxShadow: "0 2px 12px rgba(14,165,233,0.10)",
+                    }}
                   >
                     Explore Services
                   </a>
@@ -707,88 +753,163 @@ export default function App() {
               </Reveal>
             </div>
 
-            {/* Hero Visual (Abstract Tech Illustration) */}
+            {/* Hero Visual — Live Network Operations Hub */}
             <div className="hidden lg:block relative h-[500px]">
               <Reveal
                 delay={200}
                 from="right"
                 className="absolute inset-0 flex items-center justify-center"
               >
-                {/* Central Node */}
-                <div className="relative w-48 h-64 bg-white/80 backdrop-blur rounded-xl border border-sky-200 flex flex-col items-center justify-evenly p-4 z-20 shadow-2xl shadow-sky-200/60">
-                  {[1, 2, 3].map((item) => (
+                <div className="relative" style={{ width: 460, height: 460 }}>
+                  {/* Soft core glow backdrop */}
+                  <div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(14,165,233,0.18), transparent 70%)",
+                      filter: "blur(24px)",
+                    }}
+                  />
+
+                  {/* Rotating ambient orbit rings */}
+                  <div
+                    className="hub-orbit"
+                    style={{
+                      width: 430,
+                      height: 430,
+                      top: 15,
+                      left: 15,
+                      animation: "spin-slow 28s linear infinite",
+                    }}
+                  >
+                    <span
+                      className="absolute w-2.5 h-2.5 rounded-full"
+                      style={{
+                        top: -5,
+                        left: "50%",
+                        marginLeft: -5,
+                        background: "#22d3ee",
+                        boxShadow: "0 0 12px #22d3ee",
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="hub-orbit"
+                    style={{
+                      width: 320,
+                      height: 320,
+                      top: 70,
+                      left: 70,
+                      animation: "spin-slow-rev 22s linear infinite",
+                    }}
+                  >
+                    <span
+                      className="absolute w-2 h-2 rounded-full"
+                      style={{
+                        bottom: -4,
+                        left: "50%",
+                        marginLeft: -4,
+                        background: "#0ea5e9",
+                        boxShadow: "0 0 10px #0ea5e9",
+                      }}
+                    />
+                  </div>
+
+                  {/* Pulse rings broadcasting from the core */}
+                  <div className="hub-ring" style={{ animationDelay: "0s" }} />
+                  <div className="hub-ring" style={{ animationDelay: "1.2s" }} />
+                  <div className="hub-ring" style={{ animationDelay: "2.4s" }} />
+
+                  {/* Connection lines + flowing data packets */}
+                  <svg
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 460 460"
+                    fill="none"
+                    style={{ zIndex: 10 }}
+                  >
+                    {hubNodes.map((n, i) => {
+                      const pathStr =
+                        n.dir === "in"
+                          ? `M${n.x},${n.y} L230,230`
+                          : `M230,230 L${n.x},${n.y}`;
+                      return (
+                        <g key={i}>
+                          <line
+                            x1="230"
+                            y1="230"
+                            x2={n.x}
+                            y2={n.y}
+                            stroke="#0ea5e9"
+                            strokeOpacity="0.4"
+                            strokeWidth="1.5"
+                            className="hub-line"
+                          />
+                          <circle r="4" fill="#22d3ee">
+                            <animateMotion
+                              dur={`${2 + (i % 3) * 0.4}s`}
+                              begin={`${i * 0.45}s`}
+                              repeatCount="indefinite"
+                              path={pathStr}
+                            />
+                          </circle>
+                        </g>
+                      );
+                    })}
+                  </svg>
+
+                  {/* Service nodes */}
+                  {hubNodes.map((n, i) => (
                     <div
-                      key={item}
-                      className="w-full h-12 bg-sky-50 rounded border border-sky-200 flex items-center px-3 gap-2"
+                      key={i}
+                      className="absolute"
+                      style={{
+                        left: n.x,
+                        top: n.y,
+                        transform: "translate(-50%,-50%)",
+                        zIndex: 30,
+                      }}
                     >
                       <div
-                        className={`w-2 h-2 rounded-full ${
-                          item === 3
-                            ? "bg-red-500"
-                            : "bg-green-500 animate-pulse"
-                        }`}
-                      ></div>
-                      <div className="w-2 h-2 rounded-full bg-sky-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-gray-700"></div>
-                      <div className="flex-1"></div>
-                      <div className="w-16 h-1 bg-gray-700 rounded"></div>
+                        className="relative"
+                        style={{
+                          animation: `node-bob 3.2s ease-in-out ${i * 0.3}s infinite`,
+                        }}
+                      >
+                        <div className="w-14 h-14 rounded-2xl bg-white shadow-lg border border-sky-100 flex items-center justify-center text-sky-500">
+                          {n.icon}
+                        </div>
+                        <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-green-400 ring-2 ring-white" />
+                        <span className="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-500 whitespace-nowrap">
+                          {n.label}
+                        </span>
+                      </div>
                     </div>
                   ))}
-                </div>
 
-                {/* Orbiting Elements */}
-                <div className="absolute w-80 h-80 border border-[#0ea5e9]/40 rounded-full animate-[spin_20s_linear_infinite]">
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded border border-sky-300 shadow-md flex items-center justify-center text-sky-500">
-                    <Network size={16} />
-                  </div>
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded border border-sky-300 shadow-md flex items-center justify-center text-sky-500">
-                    <Shield size={16} />
+                  {/* Central core */}
+                  <div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    style={{ zIndex: 40 }}
+                  >
+                    <div className="relative">
+                      <div
+                        className="hub-core w-24 h-24 rounded-3xl flex items-center justify-center text-white"
+                        style={{
+                          background:
+                            "linear-gradient(135deg,#0284c7,#0ea5e9,#22d3ee)",
+                        }}
+                      >
+                        <Cpu size={40} />
+                      </div>
+                      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 px-3 py-1 rounded-full bg-white shadow-md border border-sky-100 flex items-center gap-1.5 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600">
+                          Operations Hub
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div className="absolute w-96 h-96 border border-[#0ea5e9]/20 rounded-full animate-[spin_30s_linear_infinite_reverse]">
-                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-8 h-8 bg-white rounded border border-cyan-300 shadow-md flex items-center justify-center text-cyan-500">
-                    <Server size={16} />
-                  </div>
-                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-8 h-8 bg-white rounded border border-sky-300 shadow-md flex items-center justify-center text-sky-500">
-                    <Video size={16} />
-                  </div>
-                </div>
-
-                {/* Connection Lines (Decorative) */}
-                <svg
-                  className="absolute inset-0 w-full h-full -z-10 opacity-20"
-                  viewBox="0 0 400 400"
-                >
-                  <path
-                    d="M 200,200 L 50,100"
-                    stroke="#0ea5e9"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                    fill="none"
-                  />
-                  <path
-                    d="M 200,200 L 350,100"
-                    stroke="#22d3ee"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                    fill="none"
-                  />
-                  <path
-                    d="M 200,200 L 50,300"
-                    stroke="#5b537a"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                    fill="none"
-                  />
-                  <path
-                    d="M 200,200 L 350,300"
-                    stroke="#8e85ab"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                    fill="none"
-                  />
-                </svg>
               </Reveal>
             </div>
           </div>
@@ -843,45 +964,45 @@ export default function App() {
         <div className="relative overflow-hidden">
           <div className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #edf5ff, transparent)" }} />
           <div className="absolute right-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #edf5ff, transparent)" }} />
-          <div className="flex animate-[marquee_40s_linear_infinite] w-max">
+          <div className="flex animate-[marquee_31s_linear_infinite] w-max">
             {[
               { name: "Dell",       slug: "dell",           color: "#0076CE" },
               { name: "HP",         slug: "hp",             color: "#0096D6" },
               { name: "Lenovo",     slug: "lenovo",         color: "#E2231A" },
               { name: "Acer",       slug: "acer",           color: "#83B81A" },
               { name: "Samsung",    slug: "samsung",        color: "#1428A0" },
-              { name: "Microsoft",  slug: "microsoft",      color: "#737373" },
+              { name: "Microsoft",  slug: null, logo: "/microsoft.png",  color: "#737373" },
               { name: "Epson",      slug: "epson",          color: "#003087" },
-              { name: "WD",         slug: "westerndigital", color: "#E35205" },
+              { name: "WD",         slug: null, logo: "/wd.png",          color: "#E35205" },
               { name: "Seagate",    slug: "seagate",        color: "#00A67C" },
-              { name: "Hikvision",  slug: "hikvision",      color: "#C8102E" },
-              { name: "Honeywell",  slug: "honeywell",      color: "#E2231A" },
-              { name: "Zebronics",  slug: null,             color: "#f59e0b" },
-              { name: "Yealink",    slug: null,             color: "#00A651" },
-              { name: "CP Plus",    slug: null,             color: "#D22B2B" },
-              { name: "Brio",       slug: null,             color: "#0ea5e9" },
-              { name: "Oscoo",      slug: null,  color: "#0ea5e9" },
-              { name: "Kingston",   slug: null,  color: "#C8102E" },
-              { name: "Kensington", slug: null,  color: "#D4373B" },
+              { name: "Hikvision",  slug: null, logo: "/hikvision.png",   color: "#C8102E" },
+              { name: "Honeywell",  slug: null, logo: "/honeywell.png",   color: "#E2231A" },
+              { name: "Zebronics",  slug: null, logo: "https://logo.clearbit.com/zebronics.com",    color: "#f59e0b" },
+              { name: "Yealink",    slug: null, logo: "https://logo.clearbit.com/yealink.com",      color: "#00A651" },
+              { name: "CP Plus",    slug: null, logo: "https://logo.clearbit.com/cpplus.in",        color: "#D22B2B" },
+              { name: "Brio",       slug: null, logo: "https://logo.clearbit.com/brio.in",          color: "#0ea5e9" },
+              { name: "Oscoo",      slug: null, logo: "/oscoo.avif",       color: "#0ea5e9" },
+              { name: "Kingston",   slug: "kingstontechnology",             color: "#CC0000" },
+              { name: "Kensington", slug: null, logo: "https://logo.clearbit.com/kensington.com",   color: "#D4373B" },
               // duplicate for seamless loop
               { name: "Dell",       slug: "dell",           color: "#0076CE" },
               { name: "HP",         slug: "hp",             color: "#0096D6" },
               { name: "Lenovo",     slug: "lenovo",         color: "#E2231A" },
               { name: "Acer",       slug: "acer",           color: "#83B81A" },
               { name: "Samsung",    slug: "samsung",        color: "#1428A0" },
-              { name: "Microsoft",  slug: "microsoft",      color: "#737373" },
+              { name: "Microsoft",  slug: null, logo: "/microsoft.png",  color: "#737373" },
               { name: "Epson",      slug: "epson",          color: "#003087" },
-              { name: "WD",         slug: "westerndigital", color: "#E35205" },
+              { name: "WD",         slug: null, logo: "/wd.png",          color: "#E35205" },
               { name: "Seagate",    slug: "seagate",        color: "#00A67C" },
-              { name: "Hikvision",  slug: "hikvision",      color: "#C8102E" },
-              { name: "Honeywell",  slug: "honeywell",      color: "#E2231A" },
-              { name: "Zebronics",  slug: null,             color: "#f59e0b" },
-              { name: "Yealink",    slug: null,             color: "#00A651" },
-              { name: "CP Plus",    slug: null,             color: "#D22B2B" },
-              { name: "Brio",       slug: null,             color: "#0ea5e9" },
-              { name: "Oscoo",      slug: null,  color: "#0ea5e9" },
-              { name: "Kingston",   slug: null,  color: "#C8102E" },
-              { name: "Kensington", slug: null,  color: "#D4373B" },
+              { name: "Hikvision",  slug: null, logo: "/hikvision.png",   color: "#C8102E" },
+              { name: "Honeywell",  slug: null, logo: "/honeywell.png",   color: "#E2231A" },
+              { name: "Zebronics",  slug: null, logo: "https://logo.clearbit.com/zebronics.com",    color: "#f59e0b" },
+              { name: "Yealink",    slug: null, logo: "https://logo.clearbit.com/yealink.com",      color: "#00A651" },
+              { name: "CP Plus",    slug: null, logo: "https://logo.clearbit.com/cpplus.in",        color: "#D22B2B" },
+              { name: "Brio",       slug: null, logo: "https://logo.clearbit.com/brio.in",          color: "#0ea5e9" },
+              { name: "Oscoo",      slug: null, logo: "/oscoo.avif",       color: "#0ea5e9" },
+              { name: "Kingston",   slug: "kingstontechnology",             color: "#CC0000" },
+              { name: "Kensington", slug: null, logo: "https://logo.clearbit.com/kensington.com",   color: "#D4373B" },
             ].map((brand, i) => (
               <div key={i} className="flex flex-col items-center justify-center gap-3 mx-8 shrink-0 w-32">
                 {brand.slug ? (
@@ -899,6 +1020,25 @@ export default function App() {
                       width="52"
                       height="52"
                       onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                  </div>
+                ) : brand.logo ? (
+                  <div
+                    className="w-24 h-24 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-105 overflow-hidden p-3"
+                    style={{
+                      background: "rgba(255,255,255,0.9)",
+                      border: `1px solid ${brand.color}30`,
+                      boxShadow: `0 4px 16px ${brand.color}18`,
+                    }}
+                  >
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.target.style.display = "none";
+                        e.target.parentElement.innerHTML = `<span style="font-size:0.75rem;font-weight:800;text-align:center;line-height:1.2;padding:0 6px;color:${brand.color}">${brand.name}</span>`;
+                      }}
                     />
                   </div>
                 ) : (
@@ -1008,7 +1148,7 @@ export default function App() {
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                 We don't just supply hardware; we architect resilient, highly
                 scalable IT ecosystems. From complex server deployments to
-                advanced cybersecurity protocols and smart office automation, we
+                advanced networking protocols and smart office automation, we
                 act as your definitive technology partner.
               </p>
 
@@ -1135,13 +1275,13 @@ export default function App() {
                 desc: "Comprehensive Annual Maintenance Contracts (AMC) providing proactive monitoring, troubleshooting, and fast resolution.",
               },
               {
-                img: "/gettyimages-1198069792-612x612.jpg",
+                img: "/asset management.jpg",
                 color: "slate-qua",
                 title: "IT Asset & Management",
                 desc: "We provide end to end IT Asset Management services, including device procurement, deployment, tracking, maintenance, and recovery. Our asset management solutions ensure seamless onboarding, improved asset visibility, reduced operational overhead.",
               },
               {
-                img: "/gettyimages-1198069792-612x612.jpg",
+                img: "/aws.jpg",
                 color: "slate-sec",
                 title: "Cloud & Architecture",
                 desc: "We deliver cloud solutions, including cloud migration, infrastructure management, security, monitoring, and disaster recovery. Our services enable businesses to leverage scalable, reliable, and cost-effective cloud platforms while maintaining operational efficiency and data security.",
@@ -1487,21 +1627,24 @@ export default function App() {
                   key={item.title}
                   delay={idx * 150}
                   from={idx % 2 === 0 ? "left" : "right"}
-                  className="relative text-center dark-card md:bg-transparent p-6 rounded-2xl md:border-none mb-4 md:mb-0"
+                  className="relative text-center dark-card p-6 rounded-2xl mb-4 md:mb-0"
                 >
                   <div
                     className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center text-2xl font-bold mb-6 relative z-10 transition-transform hover:scale-110 ${
                       item.highlight
-                        ? "border-4 border-sky-400/40 text-white shadow-xl shadow-sky-500/40"
-                        : "border-4 border-white/5 text-gray-300 shadow-lg"
+                        ? "text-white shadow-xl shadow-sky-500/40"
+                        : "text-sky-500 shadow-md"
                     }`}
                     style={
                       item.highlight
                         ? {
-                            background:
-                              "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                            background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
+                            border: "3px solid rgba(14,165,233,0.3)",
                           }
-                        : { background: "rgba(14,165,233,0.05)" }
+                        : {
+                            background: "rgba(255,255,255,0.9)",
+                            border: "2px solid rgba(14,165,233,0.25)",
+                          }
                     }
                   >
                     {item.step}
@@ -1648,7 +1791,7 @@ export default function App() {
                       name="name"
                       className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
                       style={{ background: "white" }}
-                      placeholder="John Doe"
+                      placeholder="Your Name"
                       required
                     />
                   </div>
@@ -1665,7 +1808,7 @@ export default function App() {
                       name="company"
                       className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
                       style={{ background: "white" }}
-                      placeholder="Your Company Ltd."
+                      placeholder="Your Company"
                     />
                   </div>
                 </div>
@@ -1684,7 +1827,7 @@ export default function App() {
                       name="email"
                       className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
                       style={{ background: "white" }}
-                      placeholder="john@company.com"
+                      placeholder="name@company.com"
                       required
                     />
                   </div>
@@ -1708,6 +1851,7 @@ export default function App() {
                       <option>Server Setup</option>
                       <option>AMC & IT Support</option>
                       <option>IT Hardware Asset Management</option>
+                      <option>Cloud & Architecture</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -1763,20 +1907,20 @@ export default function App() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center">
             {/* Brand */}
-            <div>
+            <div className="flex flex-col items-center">
               <a href="#" className="flex items-center gap-2 mb-6 group">
                 <span className="font-extrabold text-2xl tracking-tight text-gray-900">
                   QCS Tech
                 </span>
               </a>
-              <p className="text-gray-600 text-sm leading-relaxed mb-8">
+              <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-xs">
                 Your trusted enterprise technology partner providing scalable
                 infrastructure, robust security, and reliable hardware solutions
                 globally.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex justify-center space-x-4">
                 <a
                   href="#"
                   className="w-10 h-10 rounded-full bg-white border border-sky-200 flex items-center justify-center text-gray-500 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all shadow-sm"
@@ -1799,7 +1943,7 @@ export default function App() {
             </div>
 
             {/* Services */}
-            <div>
+            <div className="flex flex-col items-center">
               <h4 className="text-gray-900 font-bold mb-6 text-lg">IT Services</h4>
               <ul className="space-y-4 text-sm text-gray-600">
                 <li>
@@ -1854,7 +1998,7 @@ export default function App() {
             </div>
 
             {/* Solutions */}
-            <div>
+            <div className="flex flex-col items-center">
               <h4 className="text-gray-900 font-bold mb-6 text-lg">
                 Industry Solutions
               </h4>
@@ -1902,50 +2046,11 @@ export default function App() {
               </ul>
             </div>
 
-            {/* Newsletter */}
-            <div>
-              <h4 className="text-gray-900 font-bold mb-6 text-lg">
-                Stay Updated
-              </h4>
-              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                Subscribe to our newsletter for the latest tech insights and
-                enterprise offers.
-              </p>
-              <form
-                className="flex flex-col gap-3"
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  alert("Subscribed successfully!");
-                }}
-              >
-                <input
-                  type="email"
-                  placeholder="Enter email address"
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-sky-200 text-gray-900 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all placeholder-gray-400 shadow-sm"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-sky-500 font-bold py-3 rounded-xl text-white hover:bg-sky-500 transition-colors flex justify-center items-center gap-2"
-                >
-                  Subscribe Now
-                </button>
-              </form>
-            </div>
           </div>
 
-          <div className="pt-8 border-t border-sky-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
+          <div className="pt-8 border-t border-sky-200 flex justify-center items-center text-sm text-gray-500 font-medium">
             <div>
-              &copy; {new Date().getFullYear()} QCS Tech Solutions. All rights
-              reserved.
-            </div>
-            <div className="flex space-x-6">
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
+              &copy; {new Date().getFullYear()} QCS Tech Solutions. All rights reserved.
             </div>
           </div>
         </div>
