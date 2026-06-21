@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+﻿import React, { useEffect, useRef, useState } from "react";
 import {
   Activity,
   ArrowRight,
@@ -11,10 +11,8 @@ import {
   Globe,
   Handshake,
   HardHat,
-  Headset,
   HeartPulse,
   Hotel,
-  Laptop,
   Lock,
   Mail,
   MapPin,
@@ -225,10 +223,10 @@ export default function App() {
 
   return (
     <div
-      className="font-sans text-gray-100 antialiased selection:bg-[#0ea5e9] selection:text-white"
-      style={{ background: "#060c18" }}
+      className="font-sans text-gray-900 antialiased selection:bg-[#0ea5e9] selection:text-white"
+      style={{ background: "#f0f7ff" }}
     >
-      {/* â”€â”€ SCROLL PROGRESS BAR â”€â”€ */}
+      {/* â"€â"€ SCROLL PROGRESS BAR â"€â"€ */}
       <div
         className="fixed top-0 left-0 z-[100] h-[3px] transition-all duration-100"
         style={{
@@ -246,7 +244,7 @@ export default function App() {
           __html: `
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
-        /* â”€â”€ AURORA BACKGROUND â”€â”€ */
+        /* â"€â"€ AURORA BACKGROUND â"€â"€ */
         @keyframes aurora1 {
           0%   { transform: translate(0%,   0%)   scale(1); }
           25%  { transform: translate(8%,  -12%)  scale(1.15); }
@@ -274,7 +272,7 @@ export default function App() {
           50%     { opacity: 0.06; transform: scale(1.05) rotate(1deg); }
         }
 
-        /* â”€â”€ ANIMATIONS â”€â”€ */
+        /* â"€â"€ ANIMATIONS â"€â"€ */
         @keyframes blob {
           0%   { transform: translate(0,0) scale(1); }
           33%  { transform: translate(30px,-50px) scale(1.1); }
@@ -326,7 +324,7 @@ export default function App() {
           50%     { text-shadow: 0 0 40px rgba(14,165,233,0.8), 0 0 80px rgba(34,211,238,0.5); }
         }
 
-        /* â”€â”€ UTILITY CLASSES â”€â”€ */
+        /* â"€â"€ UTILITY CLASSES â"€â"€ */
         .animate-blob      { animation: blob 7s infinite; }
         .animate-aurora1   { animation: aurora1 18s ease-in-out infinite; }
         .animate-aurora2   { animation: aurora2 24s ease-in-out infinite; }
@@ -338,35 +336,35 @@ export default function App() {
         .animation-delay-6000 { animation-delay: 6s; }
 
         .glass-panel {
-          background: rgba(255,255,255,0.03);
+          background: rgba(14,165,233,0.07);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
-          border: 1px solid rgba(255,255,255,0.08);
+          border: 1px solid rgba(14,165,233,0.18);
         }
         .glass-panel-light {
-          background: rgba(255,255,255,0.05);
+          background: rgba(255,255,255,0.85);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255,255,255,0.1);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+          border: 1px solid rgba(14,165,233,0.12);
+          box-shadow: 0 8px 32px rgba(14,165,233,0.08);
         }
         .site-surface { background: transparent; }
 
         .dark-card {
-          background: rgba(6, 15, 30, 0.65);
+          background: rgba(255,255,255,0.88);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          border: 1px solid rgba(14,165,233,0.2);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+          border: 1px solid rgba(14,165,233,0.15);
+          box-shadow: 0 4px 24px rgba(14,165,233,0.07), 0 1px 3px rgba(0,0,0,0.05);
           transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
         }
         .dark-card:hover {
-          border-color: rgba(34,211,238,0.3);
-          box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+          border-color: rgba(14,165,233,0.35);
+          box-shadow: 0 12px 40px rgba(14,165,233,0.14), 0 4px 12px rgba(0,0,0,0.06);
         }
 
         .gradient-text {
-          background: linear-gradient(135deg, #38bdf8, #0ea5e9, #22d3ee, #7dd3fc, #38bdf8);
+          background: linear-gradient(135deg, #0284c7, #0ea5e9, #22d3ee, #0ea5e9, #0284c7);
           background-size: 300% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -425,15 +423,15 @@ export default function App() {
         }}
       />
 
-      {/* â”€â”€ AURORA BACKGROUND â”€â”€ */}
+      {/* â"€â"€ AURORA BACKGROUND â"€â"€ */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        {/* Deep base */}
+        {/* Light base */}
         <div
           className="absolute inset-0"
-          style={{ background: "#060c18" }}
+          style={{ background: "#f0f7ff" }}
         ></div>
 
-        {/* Aurora blob 1 â€” Deep purple/violet */}
+        {/* Aurora blob 1 */}
         <div
           className="absolute animate-aurora1"
           style={{
@@ -442,12 +440,12 @@ export default function App() {
             top: "-20%",
             left: "-20%",
             background:
-              "radial-gradient(ellipse, rgba(14,165,233,0.4) 0%, rgba(6,30,60,0.2) 35%, transparent 70%)",
+              "radial-gradient(ellipse, rgba(14,165,233,0.12) 0%, rgba(186,230,255,0.06) 35%, transparent 70%)",
             borderRadius: "60% 40% 70% 30% / 50% 60% 40% 50%",
             filter: "blur(60px)",
           }}
         />
-        {/* Aurora blob 2 â€” Magenta / Fuchsia */}
+        {/* Aurora blob 2 */}
         <div
           className="absolute animate-aurora2"
           style={{
@@ -456,12 +454,12 @@ export default function App() {
             top: "10%",
             right: "-25%",
             background:
-              "radial-gradient(ellipse, rgba(34,211,238,0.34) 0%, rgba(6,182,212,0.2) 40%, transparent 70%)",
+              "radial-gradient(ellipse, rgba(34,211,238,0.1) 0%, rgba(6,182,212,0.05) 40%, transparent 70%)",
             borderRadius: "40% 60% 30% 70% / 60% 40% 60% 40%",
             filter: "blur(70px)",
           }}
         />
-        {/* Aurora blob 3 â€” Deep pink/violet accent */}
+        {/* Aurora blob 3 */}
         <div
           className="absolute animate-aurora3"
           style={{
@@ -470,12 +468,12 @@ export default function App() {
             bottom: "-10%",
             left: "20%",
             background:
-              "radial-gradient(ellipse, rgba(6,182,212,0.3) 0%, rgba(14,165,233,0.18) 40%, transparent 70%)",
+              "radial-gradient(ellipse, rgba(6,182,212,0.08) 0%, rgba(14,165,233,0.04) 40%, transparent 70%)",
             borderRadius: "50% 50% 40% 60% / 40% 60% 50% 50%",
             filter: "blur(80px)",
           }}
         />
-        {/* Aurora blob 4 â€” Dark indigo deep pulse */}
+        {/* Aurora blob 4 */}
         <div
           className="absolute animate-aurora1 animation-delay-4000"
           style={{
@@ -484,12 +482,12 @@ export default function App() {
             top: "40%",
             left: "40%",
             background:
-              "radial-gradient(ellipse, rgba(14,165,233,0.15) 0%, transparent 65%)",
+              "radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%)",
             borderRadius: "50%",
             filter: "blur(90px)",
           }}
         />
-        {/* Aurora blob 5 â€” Violet cosmic glow */}
+        {/* Aurora blob 5 */}
         <div
           className="absolute animate-aurora2 animation-delay-2000"
           style={{
@@ -498,31 +496,19 @@ export default function App() {
             bottom: "15%",
             right: "10%",
             background:
-              "radial-gradient(ellipse, rgba(14,165,233,0.15) 0%, transparent 65%)",
+              "radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 65%)",
             borderRadius: "50%",
             filter: "blur(75px)",
           }}
         />
 
-        {/* Stars */}
-        <div className="stars" />
-
         {/* Grid mesh overlay */}
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V18L28 2l28 16v32L28 66zm0 34L0 84V52l28 16 28-16v32L28 100z' fill='none' stroke='rgba(107,91,149,0.05)' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V18L28 2l28 16v32L28 66zm0 34L0 84V52l28 16 28-16v32L28 100z' fill='none' stroke='rgba(14,165,233,0.04)' stroke-width='1'/%3E%3C/svg%3E")`,
             backgroundSize: "56px 100px",
             animation: "mesh-shift 12s ease-in-out infinite",
-          }}
-        />
-
-        {/* Vignette */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(12,11,19,0.8) 100%)",
           }}
         />
       </div>
@@ -536,11 +522,11 @@ export default function App() {
           top: "28px",
           ...(isScrolled
             ? {
-                background: "rgba(12,11,19,0.9)",
+                background: "rgba(255,255,255,0.95)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                borderBottom: "1px solid rgba(14,165,233,0.1)",
-                boxShadow: "0 4px 32px rgba(0,0,0,0.6)",
+                borderBottom: "1px solid rgba(14,165,233,0.12)",
+                boxShadow: "0 4px 24px rgba(14,165,233,0.08)",
               }
             : {}),
         }}
@@ -550,7 +536,7 @@ export default function App() {
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <a href="#" className="flex items-center gap-2 group">
-                <span className="font-bold text-xl tracking-tight text-white">
+                <span className="font-bold text-xl tracking-tight text-gray-900">
                   QCS Tech
                 </span>
               </a>
@@ -558,11 +544,11 @@ export default function App() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              {["Services", "Solutions", "About", "Projects"].map((item) => (
+              {["Services", "Solutions", "About"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-sm font-medium text-gray-300 hover:text-sky-400 transition-colors duration-200"
+                  className="text-sm font-medium text-gray-600 hover:text-sky-500 transition-colors duration-200"
                 >
                   {item}
                 </a>
@@ -584,7 +570,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="focus:outline-none text-gray-300 hover:text-white transition-colors"
+                className="focus:outline-none text-gray-600 hover:text-gray-900 transition-colors"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -594,14 +580,14 @@ export default function App() {
 
         {/* Mobile Menu Panel */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-neutral-950 border-t border-sky-500/50 absolute w-full left-0 top-full shadow-xl">
+          <div className="md:hidden bg-white border-t border-sky-200 absolute w-full left-0 top-full shadow-xl">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {["Services", "Solutions", "About", "Projects"].map((item) => (
+              {["Services", "Solutions", "About"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-sky-500/20 rounded-md"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50 rounded-md"
                 >
                   {item}
                 </a>
@@ -624,8 +610,8 @@ export default function App() {
         style={{
           top: "3px",
           height: "28px",
-          background: "rgba(11,9,18,0.95)",
-          borderBottom: "1px solid rgba(14,165,233,0.2)",
+          background: "rgba(240,247,255,0.98)",
+          borderBottom: "1px solid rgba(14,165,233,0.15)",
         }}
       >
         <div
@@ -670,7 +656,7 @@ export default function App() {
                 </div>
               </Reveal>
               <Reveal delay={100} from="left">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
                   Transforming Businesses Through{" "}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-cyan-400 to-cyan-300">
                     Smart IT Solutions
@@ -678,7 +664,7 @@ export default function App() {
                 </h1>
               </Reveal>
               <Reveal delay={200} from="left">
-                <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
+                <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
                   End-to-end IT Infrastructure, Hardware, Networking, CCTV
                   Surveillance, and Technology Solutions tailored for modern
                   enterprises and fast-growing businesses.
@@ -707,15 +693,15 @@ export default function App() {
 
               {/* Trust Indicators */}
               <Reveal delay={400} from="left">
-                <div className="relative z-10 mt-12 pt-6 border-t border-sky-950/40 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
-                 <div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#22d3ee]" /> Best In the Industry
+                <div className="relative z-10 mt-12 pt-6 border-t border-sky-200 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                 <div className="flex items-center gap-2 text-gray-600 shrink-0 whitespace-nowrap">
+  <CheckCircle2 size={18} className="text-sky-500" /> Best In the Industry
 </div>
-<div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#22d3ee]" /> 24/7 Support
+<div className="flex items-center gap-2 text-gray-600 shrink-0 whitespace-nowrap">
+  <CheckCircle2 size={18} className="text-sky-500" /> 24/7 Support
 </div>
-<div className="flex items-center gap-2 text-gray-400 shrink-0 whitespace-nowrap">
-  <CheckCircle2 size={18} className="text-[#22d3ee]" /> 9+ Years Exp
+<div className="flex items-center gap-2 text-gray-600 shrink-0 whitespace-nowrap">
+  <CheckCircle2 size={18} className="text-sky-500" /> 9+ Years Exp
 </div>
                 </div>
               </Reveal>
@@ -729,11 +715,11 @@ export default function App() {
                 className="absolute inset-0 flex items-center justify-center"
               >
                 {/* Central Node */}
-                <div className="relative w-48 h-64 glass-panel rounded-xl border border-sky-500/20 flex flex-col items-center justify-evenly p-4 z-20 shadow-2xl shadow-sky-500/10">
+                <div className="relative w-48 h-64 bg-white/80 backdrop-blur rounded-xl border border-sky-200 flex flex-col items-center justify-evenly p-4 z-20 shadow-2xl shadow-sky-200/60">
                   {[1, 2, 3].map((item) => (
                     <div
                       key={item}
-                      className="w-full h-12 bg-neutral-900 rounded border border-[#0ea5e9]/50 flex items-center px-3 gap-2"
+                      className="w-full h-12 bg-sky-50 rounded border border-sky-200 flex items-center px-3 gap-2"
                     >
                       <div
                         className={`w-2 h-2 rounded-full ${
@@ -752,19 +738,19 @@ export default function App() {
 
                 {/* Orbiting Elements */}
                 <div className="absolute w-80 h-80 border border-[#0ea5e9]/40 rounded-full animate-[spin_20s_linear_infinite]">
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-neutral-900 rounded border border-sky-500 flex items-center justify-center text-sky-400">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded border border-sky-300 shadow-md flex items-center justify-center text-sky-500">
                     <Network size={16} />
                   </div>
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-neutral-900 rounded border border-sky-500 flex items-center justify-center text-sky-400">
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded border border-sky-300 shadow-md flex items-center justify-center text-sky-500">
                     <Shield size={16} />
                   </div>
                 </div>
 
                 <div className="absolute w-96 h-96 border border-[#0ea5e9]/20 rounded-full animate-[spin_30s_linear_infinite_reverse]">
-                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-8 h-8 bg-neutral-900 rounded border border-[#22d3ee] flex items-center justify-center text-cyan-300 shadow-lg shadow-[#22d3ee]/20">
+                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-8 h-8 bg-white rounded border border-cyan-300 shadow-md flex items-center justify-center text-cyan-500">
                     <Server size={16} />
                   </div>
-                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-8 h-8 bg-neutral-900 rounded border border-sky-500 flex items-center justify-center text-sky-300 shadow-lg shadow-sky-500/20">
+                  <div className="absolute top-1/2 -right-4 -translate-y-1/2 w-8 h-8 bg-white rounded border border-sky-300 shadow-md flex items-center justify-center text-sky-500">
                     <Video size={16} />
                   </div>
                 </div>
@@ -818,31 +804,31 @@ export default function App() {
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   <Counter target={9} />
                 </div>
-                <div className="text-xs font-semibold text-sky-400/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-500/80 uppercase tracking-widest">
                   Years Experience
                 </div>
               </div>
-              <div className="p-4 border-l border-[#0ea5e9]/30">
+              <div className="p-4 border-l border-sky-200">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   <Counter target={500} suffix="+" />
                 </div>
-                <div className="text-xs font-semibold text-sky-400/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-500/80 uppercase tracking-widest">
                   Projects Delivered
                 </div>
               </div>
-              <div className="p-4 md:border-l border-[#0ea5e9]/30">
+              <div className="p-4 md:border-l border-sky-200">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   <Counter target={350} suffix="+" />
                 </div>
-                <div className="text-xs font-semibold text-sky-400/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-500/80 uppercase tracking-widest">
                   Enterprise Clients
                 </div>
               </div>
-              <div className="p-4 border-l border-[#0ea5e9]/30">
+              <div className="p-4 border-l border-sky-200">
                 <div className="text-4xl font-extrabold gradient-text mb-2">
                   24/7
                 </div>
-                <div className="text-xs font-semibold text-sky-300/60 uppercase tracking-widest">
+                <div className="text-xs font-semibold text-sky-500/80 uppercase tracking-widest">
                   Support Available
                 </div>
               </div>
@@ -852,11 +838,11 @@ export default function App() {
       </section>
 
       {/* Brands Marquee */}
-      <div className="relative z-10 py-14 overflow-hidden section-divider" style={{ background: "rgba(255,255,255,0.015)", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <p className="text-center text-xs font-semibold tracking-[0.22em] uppercase text-gray-500 mb-10">Brands We Deal In</p>
+      <div className="relative z-10 py-14 overflow-hidden section-divider" style={{ background: "rgba(14,165,233,0.03)", borderTop: "1px solid rgba(14,165,233,0.1)", borderBottom: "1px solid rgba(14,165,233,0.1)" }}>
+        <p className="text-center text-xs font-semibold tracking-[0.22em] uppercase text-sky-500/70 mb-10">Brands We Deal In</p>
         <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #0c0b13, transparent)" }} />
-          <div className="absolute right-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #0c0b13, transparent)" }} />
+          <div className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #edf5ff, transparent)" }} />
+          <div className="absolute right-0 top-0 h-full w-40 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #edf5ff, transparent)" }} />
           <div className="flex animate-[marquee_40s_linear_infinite] w-max">
             {[
               { name: "Dell",       slug: "dell",           color: "#0076CE" },
@@ -874,6 +860,9 @@ export default function App() {
               { name: "Yealink",    slug: null,             color: "#00A651" },
               { name: "CP Plus",    slug: null,             color: "#D22B2B" },
               { name: "Brio",       slug: null,             color: "#0ea5e9" },
+              { name: "Oscoo",      slug: null,  color: "#0ea5e9" },
+              { name: "Kingston",   slug: null,  color: "#C8102E" },
+              { name: "Kensington", slug: null,  color: "#D4373B" },
               // duplicate for seamless loop
               { name: "Dell",       slug: "dell",           color: "#0076CE" },
               { name: "HP",         slug: "hp",             color: "#0096D6" },
@@ -890,23 +879,25 @@ export default function App() {
               { name: "Yealink",    slug: null,             color: "#00A651" },
               { name: "CP Plus",    slug: null,             color: "#D22B2B" },
               { name: "Brio",       slug: null,             color: "#0ea5e9" },
+              { name: "Oscoo",      slug: null,  color: "#0ea5e9" },
+              { name: "Kingston",   slug: null,  color: "#C8102E" },
+              { name: "Kensington", slug: null,  color: "#D4373B" },
             ].map((brand, i) => (
               <div key={i} className="flex flex-col items-center justify-center gap-3 mx-8 shrink-0 w-32">
                 {brand.slug ? (
                   <div
                     className="w-24 h-24 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-105"
                     style={{
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.09)",
-                      boxShadow: `0 0 24px ${brand.color}22`,
+                      background: "rgba(255,255,255,0.9)",
+                      border: `1px solid ${brand.color}30`,
+                      boxShadow: `0 4px 16px ${brand.color}18`,
                     }}
                   >
                     <img
-                      src={`https://cdn.simpleicons.org/${brand.slug}/ffffff`}
+                      src={`https://cdn.simpleicons.org/${brand.slug}/${brand.color.replace('#', '')}`}
                       alt={brand.name}
                       width="52"
                       height="52"
-                      style={{ filter: `drop-shadow(0 0 8px ${brand.color}99)` }}
                       onError={(e) => { e.target.style.display = "none"; }}
                     />
                   </div>
@@ -914,9 +905,9 @@ export default function App() {
                   <div
                     className="w-24 h-24 rounded-2xl flex items-center justify-center transition-transform duration-300 hover:scale-105"
                     style={{
-                      background: `${brand.color}15`,
-                      border: `1px solid ${brand.color}45`,
-                      boxShadow: `0 0 24px ${brand.color}22`,
+                      background: `${brand.color}10`,
+                      border: `1px solid ${brand.color}35`,
+                      boxShadow: `0 4px 16px ${brand.color}18`,
                     }}
                   >
                     <span className="text-sm font-extrabold text-center leading-tight px-2" style={{ color: brand.color }}>
@@ -924,7 +915,7 @@ export default function App() {
                     </span>
                   </div>
                 )}
-                <span className="text-xs font-semibold text-gray-400 tracking-wide text-center whitespace-nowrap">
+                <span className="text-xs font-semibold text-gray-500 tracking-wide text-center whitespace-nowrap">
                   {brand.name}
                 </span>
               </div>
@@ -956,7 +947,7 @@ export default function App() {
                   />
 
                   {/* Overlay Gradient for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent z-10"></div>
                 </div>
 
                 {/* Floating Widget 1: Security */}
@@ -968,11 +959,11 @@ export default function App() {
                     <Lock size={20} />
                   </div>
                   <div>
-                    <div className="font-bold text-white text-sm">
+                    <div className="font-bold text-slate-800 text-sm">
                       Enterprise Security
                     </div>
-                    <div className="text-xs text-sky-400 font-medium flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                    <div className="text-xs text-sky-500 font-medium flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
                       Active Protection
                     </div>
                   </div>
@@ -987,7 +978,7 @@ export default function App() {
                     <Activity size={20} />
                   </div>
                   <div>
-                    <div className="font-bold text-white text-sm">
+                    <div className="font-bold text-slate-800 text-sm">
                       System Uptime
                     </div>
                     <div className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-500">
@@ -999,7 +990,7 @@ export default function App() {
                 {/* Floating Widget 3: Award */}
                 <div className="absolute right-12 -bottom-6 dark-card p-3 px-5 rounded-full flex items-center gap-3 z-20">
                   <Award size={18} className="text-amber-400" />
-                  <span className="font-bold text-white text-sm">
+                  <span className="font-bold text-slate-800 text-sm">
                     Top Tech Partner
                   </span>
                 </div>
@@ -1010,44 +1001,64 @@ export default function App() {
               <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 About Our Company
               </span>
-              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
+              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
                 Empowering Business With{" "}
                 <span className="gradient-text">Future-Ready</span> Tech.
               </h2>
-              <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                 We don't just supply hardware; we architect resilient, highly
                 scalable IT ecosystems. From complex server deployments to
                 advanced cybersecurity protocols and smart office automation, we
                 act as your definitive technology partner.
               </p>
 
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-3 mb-6">
                 <li className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-500">
                     <Check size={16} strokeWidth={3} />
                   </div>
-                  <span className="ml-4 text-gray-200 font-medium pt-1">
+                  <span className="ml-4 text-gray-700 font-medium pt-1">
                     Enterprise-grade hardware procurement & data center setup.
                   </span>
                 </li>
                 <li className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-500">
                     <Check size={16} strokeWidth={3} />
                   </div>
-                  <span className="ml-4 text-gray-200 font-medium pt-1">
+                  <span className="ml-4 text-gray-700 font-medium pt-1">
                     Robust network architecture and seamless Wi-Fi deployment.
                   </span>
                 </li>
                 <li className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-500">
                     <Check size={16} strokeWidth={3} />
                   </div>
-                  <span className="ml-4 text-gray-200 font-medium pt-1">
-                    Advanced AI-driven CCTV surveillance & access control
-                    systems.
+                  <span className="ml-4 text-gray-700 font-medium pt-1">
+                    Advanced AI-driven CCTV surveillance & access control systems.
                   </span>
                 </li>
               </ul>
+
+              <span className="text-sky-400 font-bold tracking-wider uppercase text-xs block mb-3">
+                Why Choose Us
+              </span>
+              <div className="space-y-3 mb-10">
+                {[
+                  { icon: <UserCheck size={18} />, title: "Certified Experts", desc: "Certified network engineers, server engineers, and hardware specialists." },
+                  { icon: <Clock size={18} />, title: "Rapid Response Times", desc: "Strict SLAs ensuring minimal downtime with prompt on-site and remote support." },
+                  { icon: <Handshake size={18} />, title: "Vendor Neutral", desc: "Best hardware and software combinations tailored to your needs." },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start dark-card p-4 rounded-xl transition-all hover:scale-[1.01]">
+                    <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <div className="ml-4">
+                      <div className="font-bold text-slate-800 text-sm">{item.title}</div>
+                      <div className="text-gray-600 text-sm mt-0.5">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
               <a
                 href="#contact"
@@ -1075,10 +1086,10 @@ export default function App() {
             <span className="text-[#22d3ee] font-bold tracking-wider uppercase text-sm">
               Core Expertise
             </span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">
+            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
               Comprehensive IT Services
             </h2>
-            <p className="mt-4 text-gray-300 text-lg">
+            <p className="mt-4 text-gray-600 text-lg">
               We deliver scalable, secure, and high-performance technology
               solutions tailored to your operational demands.
             </p>
@@ -1088,40 +1099,52 @@ export default function App() {
             {/* Service Cards Data Array */}
             {[
               {
-                icon: <Video size={28} />,
+                img: "/gettyimages-1198069792-612x612.jpg",
                 color: "slate-qua",
                 title: "CCTV Installation",
                 desc: "Professional installation of HD & IP cameras, NVR/DVR setups, remote mobile monitoring, and complete surveillance systems for homes, offices, and shops.",
-              },  
-              {
-                icon: <Shield size={28} />,
-                color: "slate-ter",
-                title: "IT  Hardware",
-                desc: "We sell laptops, desktops, workstations, switches, Storage at fair prices. ",
               },
-               {
-                icon: <Laptop size={28} />,
+              {
+                img: "/computer hardware.png",
+                color: "slate-ter",
+                title: "IT Hardware",
+                desc: "We sell laptops, desktops, workstations, switches, Storage at fair prices.",
+              },
+              {
+                img: "/sell laptop.jpg",
                 color: "slate-five",
                 title: "Computer Accessories",
                 desc: "We provide a wide range of computer accessories including monitors, keyboards, mice, printers, and networking peripherals to enhance your IT setup.",
               },
               {
-                icon: <Server size={28} />,
+                img: "/server and databse.jpg",
                 color: "slate",
                 title: "Server & Datacenter",
                 desc: "End-to-end server rack installation, configuration, virtualization, and maintenance for optimal data management.",
               },
               {
-                icon: <Network size={28} />,
+                img: "/networking.jpg",
                 color: "slate-sec",
                 title: "Networking & Wi-Fi",
                 desc: "Enterprise-grade structured cabling, switches, routers, and high-density Wi-Fi deployment for seamless connectivity.",
               },
               {
-                icon: <Headset size={28} />,
+                img: "/amc support.webp",
                 color: "slate-six",
                 title: "AMC & IT Support",
                 desc: "Comprehensive Annual Maintenance Contracts (AMC) providing proactive monitoring, troubleshooting, and fast resolution.",
+              },
+              {
+                img: "/gettyimages-1198069792-612x612.jpg",
+                color: "slate-qua",
+                title: "IT Asset & Management",
+                desc: "We provide end to end IT Asset Management services, including device procurement, deployment, tracking, maintenance, and recovery. Our asset management solutions ensure seamless onboarding, improved asset visibility, reduced operational overhead.",
+              },
+              {
+                img: "/gettyimages-1198069792-612x612.jpg",
+                color: "slate-sec",
+                title: "Cloud & Architecture",
+                desc: "We deliver cloud solutions, including cloud migration, infrastructure management, security, monitoring, and disaster recovery. Our services enable businesses to leverage scalable, reliable, and cost-effective cloud platforms while maintaining operational efficiency and data security.",
               },
             ].map((service, index) => {
               // Updated slate/grey aesthetic mapping
@@ -1157,21 +1180,21 @@ export default function App() {
                   <div className="dark-card rounded-2xl p-8 transition-all duration-300 group h-full flex flex-col relative overflow-hidden hover:scale-[1.03]">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-sky-500/5 to-transparent rounded-bl-full -z-10 transition-all duration-300 group-hover:scale-150 group-hover:opacity-50"></div>
 
-                    <div
-                      className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 ${
-                        colorMap[service.color]
-                      }`}
-                    >
-                      {service.icon}
+                    <div className="w-16 h-16 rounded-xl mb-6 overflow-hidden shadow-sm border border-white/60">
+                      <img
+                        src={service.img}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3
-                      className={`text-xl font-bold text-white mb-3 transition-colors ${
+                      className={`text-xl font-bold text-slate-800 mb-3 transition-colors ${
                         colorMap.textHover[service.color]
                       }`}
                     >
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 mb-8 flex-grow">
+                    <p className="text-gray-600 mb-8 flex-grow">
                       {service.desc}
                     </p>
                     <a
@@ -1202,11 +1225,11 @@ export default function App() {
       {/* Solutions Showcase */}
       <section
         id="solutions"
-        className="py-24 text-white overflow-hidden relative section-divider"
+        className="py-24 text-gray-900 overflow-hidden relative section-divider"
       >
         {/* Ambient glow */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky-900/10 to-transparent pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-sky-600/5 to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky-100/40 to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-sky-100/30 to-transparent pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Reveal
@@ -1217,10 +1240,10 @@ export default function App() {
               <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 Targeted Solutions
               </span>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">
+              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
                 Built For Your Industry
               </h2>
-              <p className="mt-4 text-gray-400 text-lg">
+              <p className="mt-4 text-gray-600 text-lg">
                 We design customized technology frameworks that address the
                 unique challenges of different business environments.
               </p>
@@ -1228,7 +1251,7 @@ export default function App() {
             <div className="mt-6 md:mt-0">
               <a
                 href="#"
-                className="text-white border border-sky-500/30 hover:border-sky-400 hover:text-sky-400 px-6 py-3 rounded-full transition-all duration-300 font-medium block text-center hover:shadow-lg hover:shadow-sky-500/10"
+                className="text-gray-700 border border-sky-300 hover:border-sky-500 hover:text-sky-600 px-6 py-3 rounded-full transition-all duration-300 font-medium block text-center hover:shadow-lg hover:shadow-sky-200/50"
               >
                 View All Solutions
               </a>
@@ -1357,7 +1380,7 @@ export default function App() {
                   alt={card.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0b13] via-[#0c0b13]/70 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
 
                 {/* Top gradient accent bar */}
                 <div
@@ -1417,10 +1440,10 @@ export default function App() {
             <span className="text-[#22d3ee] font-bold tracking-wider uppercase text-sm">
               How We Work
             </span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white">
+            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
               Seamless Execution Process
             </h2>
-            <p className="mt-4 text-gray-300 text-lg">
+            <p className="mt-4 text-gray-600 text-lg">
               A structured approach to guarantee zero downtime and perfectly
               aligned technology implementations.
             </p>
@@ -1478,141 +1501,20 @@ export default function App() {
                             background:
                               "linear-gradient(135deg, #0284c7, #0ea5e9)",
                           }
-                        : { background: "rgba(255,255,255,0.03)" }
+                        : { background: "rgba(14,165,233,0.05)" }
                     }
                   >
                     {item.step}
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-3">
+                  <h4 className="text-xl font-bold text-slate-800 mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <p className="text-sm text-gray-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </Reveal>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Two Column: Why Choose Us & Quick Project */}
-      <section className="py-24 bg-transparent section-divider">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Why Choose Us */}
-            <Reveal from="left">
-              <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
-                Why Choose Us
-              </span>
-              <h2 className="mt-2 text-3xl md:text-4xl font-extrabold text-white mb-10">
-                The QCS Tech Advantage
-              </h2>
-              <div className="space-y-8">
-                {[
-                  {
-                    icon: <UserCheck size={20} />,
-                    title: "Certified Experts",
-                    desc: "Our team comprises certified network engineers, security analysts, and hardware specialists.",
-                  },
-                  {
-                    icon: <Clock size={20} />,
-                    title: "Rapid Response Times",
-                    desc: "Strict SLAs ensuring minimal downtime with prompt on-site and remote troubleshooting.",
-                  },
-                  {
-                    icon: <Handshake size={20} />,
-                    title: "Vendor Neutral Approach",
-                    desc: "We recommend the best hardware and software combinations tailored to your needs, not vendor quotas.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.title}
-                    className="flex p-4 rounded-2xl dark-card hover:scale-[1.01] transition-all"
-                  >
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
-                        {item.icon}
-                      </div>
-                    </div>
-                    <div className="ml-5">
-                      <h4 className="text-xl font-bold text-white">
-                        {item.title}
-                      </h4>
-                      <p className="mt-2 text-gray-400 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            {/* Featured Project Container */}
-            <Reveal delay={200} from="right">
-              <div
-                id="projects"
-                className="dark-card p-8 md:p-10 rounded-[2rem] relative overflow-hidden h-full flex flex-col"
-              >
-                <div className="absolute top-0 right-0 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-bold px-6 py-2 rounded-bl-2xl z-10 shadow-lg shadow-sky-500/20">
-                  Featured Case Study
-                </div>
-
-                <h3 className="text-2xl font-extrabold text-white mb-2 mt-2">
-                  TechHub Solutions Datacenter
-                </h3>
-                <p className="text-sky-400 text-sm font-bold tracking-wide uppercase mb-6">
-                  Server & Network Overhaul
-                </p>
-
-                <div className="relative rounded-2xl overflow-hidden mb-8 shadow-lg group flex-grow">
-                  <div className="absolute inset-0 bg-sky-500/5 group-hover:bg-transparent transition-colors z-10"></div>
-                  <img
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600"
-                    alt="Datacenter Network Racks"
-                    className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700 min-h-[200px]"
-                  />
-                </div>
-
-                <div
-                  className="grid grid-cols-2 gap-6 mb-8 rounded-2xl p-5"
-                  style={{
-                    background: "rgba(0,0,0,0.4)",
-                    border: "1px solid rgba(14,165,233,0.1)",
-                  }}
-                >
-                  <div>
-                    <div className="text-xs text-gray-400 font-bold uppercase mb-1 flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div>
-                      Challenge
-                    </div>
-                    <div className="text-sm font-semibold text-gray-200">
-                      Outdated infrastructure causing network bottlenecks.
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 font-bold uppercase mb-1 flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
-                      Result
-                    </div>
-                    <div className="text-sm font-bold text-emerald-400">
-                      300% speed increase, 99.99% uptime achieved.
-                    </div>
-                  </div>
-                </div>
-
-                <a
-                  href="#"
-                  className="w-full block text-center text-white font-bold py-4 rounded-xl transition-all hover:scale-[1.02] mt-auto"
-                  style={{
-                    background: "linear-gradient(135deg, #0284c7, #0ea5e9)",
-                    boxShadow: "0 0 20px rgba(14,165,233,0.3)",
-                  }}
-                >
-                  View Full Portfolio
-                </a>
-              </div>
-            </Reveal>
           </div>
         </div>
       </section>
@@ -1671,10 +1573,10 @@ export default function App() {
               <span className="text-sky-400 font-bold tracking-wider uppercase text-sm">
                 Get In Touch
               </span>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-white mb-6">
+              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
                 Let's Discuss Your Tech Needs
               </h2>
-              <p className="text-gray-300 mb-10 text-lg leading-relaxed">
+              <p className="text-gray-600 mb-10 text-lg leading-relaxed">
                 Whether you need a complete office setup, network security
                 audit, or hardware procurement, our experts are ready to
                 architect your solution.
@@ -1686,10 +1588,10 @@ export default function App() {
                     <MapPin size={24} />
                   </div>
                   <div className="ml-5">
-                    <h4 className="text-lg font-bold text-white">
+                    <h4 className="text-lg font-bold text-slate-800">
                       Office
                     </h4>
-                    <p className="text-gray-400 mt-1 leading-relaxed">
+                    <p className="text-gray-600 mt-1 leading-relaxed">
                       C-148, New Moti Nagar,
                       <br />
                       New Delhi 110015
@@ -1698,26 +1600,26 @@ export default function App() {
                 </div>
 
                 <div className="flex items-start group dark-card p-4 rounded-2xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400 transition-colors">
+                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 transition-colors">
                     <Mail size={24} />
                   </div>
                   <div className="ml-5">
-                    <h4 className="text-lg font-bold text-white">Email Us</h4>
-                    <p className="text-gray-400 mt-1 leading-relaxed">
+                    <h4 className="text-lg font-bold text-slate-800">Email Us</h4>
+                    <p className="text-gray-600 mt-1 leading-relaxed">
                       ashish@qcstech.in
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start group dark-card p-4 rounded-2xl transition-all hover:scale-[1.01]">
-                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-300 transition-colors">
+                  <div className="flex-shrink-0 w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 transition-colors">
                     <Phone size={24} />
                   </div>
                   <div className="ml-5">
-                    <h4 className="text-lg font-bold text-white">
+                    <h4 className="text-lg font-bold text-slate-800">
                       Call Support (24/7)
                     </h4>
-                    <p className="text-gray-400 mt-1 leading-relaxed">
+                    <p className="text-gray-600 mt-1 leading-relaxed">
                       +91 98995 36532
                     </p>
                   </div>
@@ -1736,7 +1638,7 @@ export default function App() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-bold text-gray-300 mb-2"
+                      className="block text-sm font-bold text-gray-700 mb-2"
                     >
                       Full Name
                     </label>
@@ -1744,8 +1646,8 @@ export default function App() {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
-                      style={{ background: "rgba(255,255,255,0.03)" }}
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
+                      style={{ background: "white" }}
                       placeholder="John Doe"
                       required
                     />
@@ -1753,7 +1655,7 @@ export default function App() {
                   <div>
                     <label
                       htmlFor="company"
-                      className="block text-sm font-bold text-gray-300 mb-2"
+                      className="block text-sm font-bold text-gray-700 mb-2"
                     >
                       Company
                     </label>
@@ -1761,8 +1663,8 @@ export default function App() {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
-                      style={{ background: "rgba(255,255,255,0.03)" }}
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
+                      style={{ background: "white" }}
                       placeholder="Your Company Ltd."
                     />
                   </div>
@@ -1772,7 +1674,7 @@ export default function App() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-bold text-gray-300 mb-2"
+                      className="block text-sm font-bold text-gray-700 mb-2"
                     >
                       Email Address
                     </label>
@@ -1780,8 +1682,8 @@ export default function App() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
-                      style={{ background: "rgba(255,255,255,0.03)" }}
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
+                      style={{ background: "white" }}
                       placeholder="john@company.com"
                       required
                     />
@@ -1789,40 +1691,24 @@ export default function App() {
                   <div>
                     <label
                       htmlFor="service"
-                      className="block text-sm font-bold text-gray-300 mb-2"
+                      className="block text-sm font-bold text-gray-700 mb-2"
                     >
                       Interested Service
                     </label>
                     <select
                       id="service"
                       name="service"
-                      className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white appearance-none"
-                      style={{ background: "rgba(18,17,25,0.9)" }}
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 appearance-none"
+                      style={{ background: "white" }}
                     >
-                      <option style={{ background: "#060c18" }}>
-                        CCTV Installation
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        Computer Hardware & Accessories
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        Buy / Sell Laptops & PCs
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        Networking & Wi-Fi
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        Server Setup
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        AMC & IT Support
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        IT Hardware Asset Management
-                      </option>
-                      <option style={{ background: "#060c18" }}>
-                        Other
-                      </option>
+                      <option>CCTV Installation</option>
+                      <option>Computer Hardware & Accessories</option>
+                      <option>Buy / Sell Laptops & PCs</option>
+                      <option>Networking & Wi-Fi</option>
+                      <option>Server Setup</option>
+                      <option>AMC & IT Support</option>
+                      <option>IT Hardware Asset Management</option>
+                      <option>Other</option>
                     </select>
                   </div>
                 </div>
@@ -1830,7 +1716,7 @@ export default function App() {
                 <div className="mb-8">
                   <label
                     htmlFor="message"
-                    className="block text-sm font-bold text-gray-300 mb-2"
+                    className="block text-sm font-bold text-gray-700 mb-2"
                   >
                     Project Details
                   </label>
@@ -1838,8 +1724,8 @@ export default function App() {
                     id="message"
                     name="message"
                     rows="4"
-                    className="w-full px-4 py-3.5 rounded-xl border border-white/5 focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-600 resize-none"
-                    style={{ background: "rgba(255,255,255,0.03)" }}
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400 resize-none"
+                    style={{ background: "white" }}
                     placeholder="Briefly describe your requirements..."
                     required
                   ></textarea>
@@ -1872,8 +1758,8 @@ export default function App() {
       <footer
         className="pt-20 pb-8"
         style={{
-          background: "rgba(4,10,20,0.98)",
-          borderTop: "1px solid rgba(14,165,233,0.1)",
+          background: "rgba(240,247,255,0.98)",
+          borderTop: "1px solid rgba(14,165,233,0.12)",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1881,11 +1767,11 @@ export default function App() {
             {/* Brand */}
             <div>
               <a href="#" className="flex items-center gap-2 mb-6 group">
-                <span className="font-extrabold text-2xl tracking-tight text-white">
+                <span className="font-extrabold text-2xl tracking-tight text-gray-900">
                   QCS Tech
                 </span>
               </a>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8">
+              <p className="text-gray-600 text-sm leading-relaxed mb-8">
                 Your trusted enterprise technology partner providing scalable
                 infrastructure, robust security, and reliable hardware solutions
                 globally.
@@ -1893,19 +1779,19 @@ export default function App() {
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-900 border border-sky-500/40 flex items-center justify-center text-gray-400 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all"
+                  className="w-10 h-10 rounded-full bg-white border border-sky-200 flex items-center justify-center text-gray-500 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all shadow-sm"
                 >
                   <Globe size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-900 border border-sky-500/40 flex items-center justify-center text-gray-400 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all"
+                  className="w-10 h-10 rounded-full bg-white border border-sky-200 flex items-center justify-center text-gray-500 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all shadow-sm"
                 >
                   <MessageCircle size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-900 border border-sky-500/40 flex items-center justify-center text-gray-400 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all"
+                  className="w-10 h-10 rounded-full bg-white border border-sky-200 flex items-center justify-center text-gray-500 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all shadow-sm"
                 >
                   <Share2 size={18} />
                 </a>
@@ -1914,8 +1800,8 @@ export default function App() {
 
             {/* Services */}
             <div>
-              <h4 className="text-white font-bold mb-6 text-lg">IT Services</h4>
-              <ul className="space-y-4 text-sm text-gray-400">
+              <h4 className="text-gray-900 font-bold mb-6 text-lg">IT Services</h4>
+              <ul className="space-y-4 text-sm text-gray-600">
                 <li>
                   <a
                     href="#"
@@ -1969,10 +1855,10 @@ export default function App() {
 
             {/* Solutions */}
             <div>
-              <h4 className="text-white font-bold mb-6 text-lg">
+              <h4 className="text-gray-900 font-bold mb-6 text-lg">
                 Industry Solutions
               </h4>
-              <ul className="space-y-4 text-sm text-gray-400">
+              <ul className="space-y-4 text-sm text-gray-600">
                 <li>
                   <a
                     href="#"
@@ -2018,10 +1904,10 @@ export default function App() {
 
             {/* Newsletter */}
             <div>
-              <h4 className="text-white font-bold mb-6 text-lg">
+              <h4 className="text-gray-900 font-bold mb-6 text-lg">
                 Stay Updated
               </h4>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Subscribe to our newsletter for the latest tech insights and
                 enterprise offers.
               </p>
@@ -2035,7 +1921,7 @@ export default function App() {
                 <input
                   type="email"
                   placeholder="Enter email address"
-                  className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-sky-500/40 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder-gray-600"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-sky-200 text-gray-900 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-all placeholder-gray-400 shadow-sm"
                   required
                 />
                 <button
@@ -2048,7 +1934,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-[#0ea5e9]/30 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
+          <div className="pt-8 border-t border-sky-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-medium">
             <div>
               &copy; {new Date().getFullYear()} QCS Tech Solutions. All rights
               reserved.
@@ -2075,20 +1961,20 @@ export default function App() {
           <div
             className="w-full max-w-xs rounded-3xl p-8 flex flex-col items-center"
             style={{
-              background: "rgba(14,13,22,0.97)",
-              border: "1px solid rgba(255,255,255,0.07)",
-              boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(14,165,233,0.12)",
+              background: "rgba(255,255,255,0.98)",
+              border: "1px solid rgba(14,165,233,0.15)",
+              boxShadow: "0 32px 80px rgba(14,165,233,0.12), 0 4px 24px rgba(0,0,0,0.08)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className="text-center mb-7">
               <p className="text-xs font-semibold tracking-[0.18em] uppercase text-sky-400 mb-2">Send via</p>
-              <h3 className="text-lg font-semibold text-white">Choose a mail client</h3>
+              <h3 className="text-lg font-semibold text-gray-900">Choose a mail client</h3>
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px mb-7" style={{ background: "rgba(255,255,255,0.06)" }} />
+            <div className="w-full h-px mb-7" style={{ background: "rgba(14,165,233,0.12)" }} />
 
             {/* Icon buttons */}
             <div className="flex items-center justify-center gap-8 mb-7">
@@ -2113,14 +1999,14 @@ export default function App() {
                     <ellipse cx="16" cy="24" rx="7" ry="8.5" fill="#0078D4"/>
                   </svg>
                 </div>
-                <span className="text-[11px] font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide">Outlook</span>
+                <span className="text-[11px] font-medium text-gray-500 group-hover:text-gray-800 transition-colors tracking-wide">Outlook</span>
               </button>
 
               {/* Separator */}
               <div className="flex flex-col items-center gap-1">
-                <div className="w-px h-5" style={{ background: "rgba(255,255,255,0.08)" }}/>
-                <span className="text-[10px] text-gray-600 font-medium">or</span>
-                <div className="w-px h-5" style={{ background: "rgba(255,255,255,0.08)" }}/>
+                <div className="w-px h-5" style={{ background: "rgba(14,165,233,0.15)" }}/>
+                <span className="text-[10px] text-gray-400 font-medium">or</span>
+                <div className="w-px h-5" style={{ background: "rgba(14,165,233,0.15)" }}/>
               </div>
 
               {/* Gmail */}
@@ -2144,16 +2030,16 @@ export default function App() {
                     <path d="M24 11.5c3.2 0 6.1 1.1 8.4 3.3l6.2-6.2C34.5 5 29.7 3 24 3 15.8 3 8.5 7.1 5 15l6.5 5c1.7-5.2 6.7-8.5 12.5-8.5z" fill="#EA4335"/>
                   </svg>
                 </div>
-                <span className="text-[11px] font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide">Gmail</span>
+                <span className="text-[11px] font-medium text-gray-500 group-hover:text-gray-800 transition-colors tracking-wide">Gmail</span>
               </button>
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px mb-5" style={{ background: "rgba(255,255,255,0.06)" }} />
+            <div className="w-full h-px mb-5" style={{ background: "rgba(14,165,233,0.12)" }} />
 
             <button
               onClick={() => setShowEmailModal(false)}
-              className="text-[12px] font-medium text-gray-600 hover:text-gray-400 transition-colors tracking-wide"
+              className="text-[12px] font-medium text-gray-400 hover:text-gray-700 transition-colors tracking-wide"
             >
               Cancel
             </button>
